@@ -6,6 +6,14 @@ Editable static homepage reconstructed from 01.pdf (three printed pages of one W
 - index.html: Hungarian page content
 - styles.css: responsive styling
 - assets/: hero and four product thumbnails recovered from the PDF
+- DEMOS/Videos/: supplied scroll-scrub demo and colour-test clip used in the homepage hero
+- localization.js and localization.css: Hungarian, English and German language switching on both page concepts
+- hero-scrub.js and hero-scrub.css: accessible, scroll-scrubbed homepage hero
+
+## Accessibility and languages
+The homepage and cinematic concept can be switched between Hungarian, English and German. The chosen language is remembered in the browser and updates the document language, page title, descriptions and image alternatives. Both pages include a keyboard-accessible skip link and language selector. The video hero respects reduced-motion preferences and shows the static nursery illustration instead of moving video.
+
+The homepage currently uses the supplied colour-test clip to demonstrate scroll scrubbing; replace it with approved nursery footage before production.
 
 ## Migration status
 This is a partial reconstruction, not a full Wix export. The PDF's visible copy and prices are preserved. The fourth product title was clipped in the PDF; “Organic Cotton Blanket” is an inferred completion and needs confirmation. Product thumbnails are only 147 × 147 pixels. The original font was not identified; Georgia is used as a local fallback. Header navigation is newly added for the local page. Missing imagery and printed blank space are not reproduced. Social links were omitted because their destinations are unknown.

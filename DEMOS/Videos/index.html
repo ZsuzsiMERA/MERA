@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scroll Scrub Demo</title>
+<style>
+  :root { --bg: #111; --text: #eee; --muted: #999; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 18px/1.6 system-ui, sans-serif; }
+  .intro, .outro { min-height: 80vh; display: grid; place-items: center; text-align: center; padding: 0 16px; }
+  .intro p, .outro p { color: var(--muted); max-width: 32em; }
+
+  /* The scrub effect: copy these rules into the site's style.css */
+  .scrub video { display: block; width: 100%; }
+  .scrub.is-scrubbing { height: var(--scrub-length, 300vh); }
+  .scrub.is-scrubbing .scrub-stage {
+    position: sticky; top: 0;
+    height: 100vh; height: 100svh;
+    display: grid; place-items: center;
+  }
+  .scrub.is-scrubbing video { max-height: 80svh; width: auto; max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="intro">
+  <div>
+    <h1>Scroll down ↓</h1>
+    <p>The video below doesn't play by itself. Scrolling moves it forward and scrolling back up rewinds it.</p>
+  </div>
+</div>
+
+<section class="scrub" style="--scrub-length: 300vh">
+  <div class="scrub-stage">
+    <video src="videos/clip.mp4" controls muted playsinline preload="auto"></video>
+  </div>
+</section>
+
+<div class="outro">
+  <div>
+    <h1>End of the video</h1>
+    <p>Scroll back up to rewind it. Make <code>--scrub-length</code> bigger to scrub more slowly.</p>
+  </div>
+</div>
+
+<script src="scrub.js" defer></script>
+</body>
+</html>
