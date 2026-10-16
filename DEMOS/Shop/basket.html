@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mera Basket</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="logo" href="index.html">MERA</a>
+  <a class="basket-link" href="basket.html">Basket (<span data-basket-count>0</span>)</a>
+</header>
+
+<main>
+  <h1>Your basket</h1>
+
+  <div data-basket></div>
+
+  <section data-order-section hidden>
+    <h2>Send your order</h2>
+    <p class="lead">This is an order request, not a payment. We'll email you within one working day
+      to confirm stock and delivery, with our bank details and the amount to transfer.</p>
+
+    <form data-order-form>
+      <label>Full name
+        <input name="name" required autocomplete="name">
+      </label>
+      <label>Email
+        <input name="email" type="email" required autocomplete="email">
+      </label>
+      <label>Phone
+        <input name="phone" type="tel" required autocomplete="tel">
+      </label>
+      <label>Delivery address
+        <textarea name="address" required autocomplete="street-address"></textarea>
+      </label>
+      <label>Anything else? <span class="hint">Optional</span>
+        <textarea name="message"></textarea>
+      </label>
+
+      <!-- Spam trap: hidden from people, bots fill it in and Web3Forms drops the submission -->
+      <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off">
+
+      <button type="submit">Send order request</button>
+      <p class="hint" data-form-status aria-live="polite"></p>
+    </form>
+  </section>
+</main>
+
+<script src="shop.js"></script>
+</body>
+</html>

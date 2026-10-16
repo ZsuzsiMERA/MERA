@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mera Shop</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="logo" href="index.html">MERA</a>
+  <a class="basket-link" href="basket.html">Basket (<span data-basket-count>0</span>)</a>
+</header>
+
+<main>
+  <h1>Shop</h1>
+  <p class="lead">Send us your order. We confirm stock and delivery by email, then you pay by bank transfer.</p>
+
+  <!-- One <article> per product. data-id must be unique; data-price is in forints. -->
+  <div class="products">
+
+    <article class="product" data-id="candle" data-name="Hand-poured candle" data-price="6900">
+      <img src="images/candle.svg" alt="Hand-poured candle">
+      <div class="product-body">
+        <h2>Hand-poured candle</h2>
+        <p>Soy wax, 40-hour burn. Placeholder text for the real description.</p>
+        <span class="price">6900 Ft</span>
+        <button type="button" data-add>Add to basket</button>
+        <span class="added" aria-live="polite"></span>
+      </div>
+    </article>
+
+    <article class="product" data-id="cushion" data-name="Linen cushion" data-price="12500">
+      <img src="images/cushion.svg" alt="Linen cushion">
+      <div class="product-body">
+        <h2>Linen cushion</h2>
+        <p>45 × 45 cm, washed linen. Placeholder text for the real description.</p>
+        <span class="price">12 500 Ft</span>
+        <button type="button" data-add>Add to basket</button>
+        <span class="added" aria-live="polite"></span>
+      </div>
+    </article>
+
+    <article class="product" data-id="vase" data-name="Ceramic vase" data-price="18900">
+      <img src="images/vase.svg" alt="Ceramic vase">
+      <div class="product-body">
+        <h2>Ceramic vase</h2>
+        <p>Hand-thrown stoneware, 25 cm. Placeholder text for the real description.</p>
+        <span class="price">18 900 Ft</span>
+        <button type="button" data-add>Add to basket</button>
+        <span class="added" aria-live="polite"></span>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<script src="shop.js"></script>
+</body>
+</html>

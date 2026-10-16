@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order Received</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="logo" href="index.html">MERA</a>
+  <a class="basket-link" href="basket.html">Basket (<span data-basket-count>0</span>)</a>
+</header>
+
+<main>
+  <h1>Thank you, we have your order</h1>
+  <p class="lead">Your order number is <strong data-order-number>…</strong>.
+    We'll email you within one working day to confirm, with our bank details and the amount to transfer.
+    Please use the order number as the payment reference.</p>
+
+  <div data-demo-preview hidden>
+    <div class="notice"><strong>Demo mode.</strong> No email was sent because <code>shop.js</code> has no
+      Web3Forms access key yet. This is the email the shop would have received:</div>
+    <div class="preview" data-preview-text></div>
+  </div>
+
+  <p><a href="index.html">Back to the shop</a></p>
+</main>
+
+<script src="shop.js"></script>
+</body>
+</html>
