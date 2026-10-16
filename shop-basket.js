@@ -72,6 +72,9 @@ function productName(card) {
 }
 
 function updateBasket() {
+  productCards.forEach((card) => {
+    card.querySelector('[data-product-price]').textContent = formatPrice(Number(card.dataset.price));
+  });
   const itemCount = [...basket.values()].reduce((sum, quantity) => sum + quantity, 0);
   const total = [...basket].reduce((sum, [id, quantity]) => {
     return sum + Number(basketProductById.get(id).dataset.price) * quantity;
@@ -191,4 +194,5 @@ basketClear.addEventListener('click', () => {
 
 document.addEventListener('mera:languagechange', updateBasket);
 loadBasket();
+saveBasket();
 updateBasket();
