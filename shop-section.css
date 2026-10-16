@@ -1,0 +1,44 @@
+.shop-basket-link{display:inline-flex;align-items:center;gap:9px;padding:8px 13px;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:13px;white-space:nowrap}
+.shop-basket-link:hover{background:var(--sand)}
+.shop-basket-count{display:grid;min-width:22px;height:22px;place-items:center;border-radius:50%;background:var(--ink);color:#fff;font-size:11px}
+.shop-section{padding:0 7% 30px;scroll-margin-top:25px}
+.shop-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:27px}
+.shop-heading h2{margin-bottom:0}
+.shop-heading .eyebrow{margin-bottom:13px}
+.shop-notice{max-width:400px;margin:0 0 4px;color:#716457;font-size:13px}
+.shop-basket{margin:0 0 30px;padding:22px 25px;background:var(--sand);border:1px solid var(--line)}
+.basket-heading{display:flex;align-items:center;justify-content:space-between;gap:15px}
+.basket-heading h3{margin:0}
+.basket-clear,.basket-quantity-button,.basket-remove-button{border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.basket-clear{padding:8px 12px;font:inherit;font-size:12px}
+.basket-clear:disabled{cursor:not-allowed;opacity:.55}
+.basket-items{display:grid;gap:11px;margin:16px 0 0;padding:0;list-style:none}
+.basket-item{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:11px;border-top:1px solid var(--line)}
+.basket-item-details{display:grid;gap:2px}
+.basket-item-name{font-weight:600}
+.basket-item-subtotal{font-size:13px;color:#716457}
+.basket-item-controls{display:flex;align-items:center;gap:10px}
+.basket-quantity-button{width:34px;height:34px;font:inherit}
+.basket-quantity{min-width:20px;text-align:center}
+.basket-remove-button{padding:6px 9px;font:inherit;font-size:12px}
+.basket-empty{margin:16px 0 0;color:#716457}
+.basket-summary{margin-top:16px;padding-top:12px;border-top:1px solid var(--line)}
+.basket-summary>p:first-child{display:flex;justify-content:space-between;gap:12px;margin:0;font-size:16px}
+.basket-checkout-note{margin:8px 0 0;color:#716457;font-size:12px}
+.shop-products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.shop-product{display:flex;min-width:0;flex-direction:column;overflow:hidden;border:1px solid var(--line);background:#fff}
+.shop-product>img{display:block;width:100%;aspect-ratio:1;object-fit:cover;background:var(--sand)}
+.shop-product-body{display:flex;flex:1;flex-direction:column;gap:9px;padding:17px}
+.shop-product h3{margin:0;font-family:Georgia,'Times New Roman',serif;font-size:21px;overflow-wrap:anywhere}
+.shop-product-body>p:not(.shop-price){min-height:3em;margin:0;color:#716457;font-size:13px}
+.shop-price{display:flex;align-items:baseline;gap:5px;margin:auto 0 5px;font-size:12px;color:#716457}
+.shop-price strong{color:var(--ink);font-size:16px}
+.shop-add{width:100%;min-height:44px;border:0;background:var(--ink);color:#fff;cursor:pointer;font:inherit;font-size:12px;letter-spacing:.045em}
+.shop-add:hover{background:#655747}
+.shop-add:focus-visible,.basket-clear:focus-visible,.basket-quantity-button:focus-visible,.basket-remove-button:focus-visible,.shop-basket-link:focus-visible{outline:3px solid #805b35;outline-offset:3px}
+.shop-add:active,.basket-quantity-button:active{transform:translateY(1px)}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+[hidden]{display:none!important}
+@media(max-width:950px){.shop-products{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.shop-section{padding:0 22px 20px}.shop-heading{display:block}.shop-notice{margin-top:13px}.shop-products{gap:15px}.shop-product-body{padding:13px}.shop-product h3{font-size:18px}}
+@media(max-width:420px){.shop-products{grid-template-columns:1fr}.shop-product{display:grid;grid-template-columns:38% 1fr}.shop-product>img{height:100%;aspect-ratio:auto;object-fit:cover}.shop-product-body{padding:14px}.shop-product-body>p:not(.shop-price){min-height:0}.basket-item{align-items:flex-start;flex-direction:column;gap:9px}.basket-item-controls{width:100%}}
