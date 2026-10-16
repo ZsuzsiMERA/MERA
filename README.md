@@ -17,7 +17,7 @@ The homepage and cinematic concept can be switched between Hungarian, English an
 The homepage uses the six-second MERA nursery animation (768p, with the Hailuo watermark) for scroll scrubbing: closed door, ornate key, and the Izabel nursery reveal.
 
 ## Migration status
-This is a partial reconstruction, not a full Wix export. The current shop shows a sample name plaque, linen cushion and ceramic vase; names, descriptions and prices must be replaced with MERA's confirmed catalogue before publishing. The original font was not identified; Georgia is used as a local fallback. Header navigation is newly added for the local page. Missing imagery and printed blank space are not reproduced. Social links were omitted because their destinations are unknown.
+This is a partial reconstruction, not a full Wix export. The current shop shows a sample name plaque, linen cushion and ceramic vase; names, descriptions and prices must be replaced with MERA's confirmed catalogue before publishing. The contact email is hello@merahome.hu. The original font was not identified; Georgia is used as a local fallback. Header navigation is newly added for the local page. Missing imagery and printed blank space are not reproduced. Social links were omitted because their destinations are unknown.
 
 No checkout, payment, member login, product detail pages or backend is implemented. No GitHub remote or deployment has been configured. Relative asset paths support static hosting, including GitHub Pages.
 
