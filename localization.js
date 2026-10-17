@@ -1,5 +1,15 @@
 const translations = {
   hu: {
+    trustLabel: "A MERA ígérete",
+    trustTitle1: "Egy édesanya által megálmodva",
+    trustCopy1: "Egy magyar kisvállalkozás, ahol minden rendelés mögött valódi személyes figyelem áll.",
+    trustTitle2: "Személyre szabva neked",
+    trustCopy2: "Minden egyedi darab a megadott névvel és választott részletekkel készül.",
+    trustTitle3: "Gondosan csomagolva",
+    trustCopy3: "Minden rendelést úgy készítünk össze, hogy ajándékként is öröm legyen kibontani.",
+    trustTitle4: "Átlátható rendelés",
+    trustCopy4: "Már vásárlás előtt látod a várható elkészülési és feladási időt.",
+
     homeTitle: 'MERA | Örök emlék a babának',
     conceptTitle: 'MERA · A mese életre kel',
     description: 'MERA – személyes babaváró és emléktárgyak, kézzel készült fa kiegészítők a gyerekszobába.',
@@ -93,6 +103,16 @@ const translations = {
     collectionOutroCopy: 'Személyes, kézzel készült részletek a legszebb kezdetekhez.'
   },
   en: {
+    trustLabel: "The MERA promise",
+    trustTitle1: "Dreamed up by a mother",
+    trustCopy1: "A small Hungarian business where every order receives genuine personal attention.",
+    trustTitle2: "Personalised for you",
+    trustCopy2: "Every unique piece is made with your chosen name and details.",
+    trustTitle3: "Carefully packaged",
+    trustCopy3: "We prepare every order to make it a joy to unwrap as a gift.",
+    trustTitle4: "Clear ordering information",
+    trustCopy4: "See the expected production and dispatch times before you buy.",
+
     homeTitle: 'MERA | A lasting memory for your baby',
     conceptTitle: 'MERA · The story comes alive',
     description: 'MERA — personal baby gifts and keepsakes, handmade wooden pieces for the nursery.',
@@ -186,6 +206,16 @@ const translations = {
     collectionOutroCopy: 'Personal, handmade details for life’s loveliest beginnings.'
   },
   de: {
+    trustLabel: "Das MERA Versprechen",
+    trustTitle1: "Von einer Mutter erträumt",
+    trustCopy1: "Ein kleines ungarisches Unternehmen, in dem jede Bestellung persönliche Aufmerksamkeit erhält.",
+    trustTitle2: "Für dich personalisiert",
+    trustCopy2: "Jedes Einzelstück wird mit deinem angegebenen Namen und den gewählten Details gefertigt.",
+    trustTitle3: "Sorgfältig verpackt",
+    trustCopy3: "Wir stellen jede Bestellung so zusammen, dass das Auspacken auch als Geschenk Freude bereitet.",
+    trustTitle4: "Transparent bestellen",
+    trustCopy4: "Die voraussichtliche Anfertigungs- und Versandzeit siehst du bereits vor dem Kauf.",
+
     homeTitle: 'MERA | Eine bleibende Erinnerung fürs Baby',
     conceptTitle: 'MERA · Ein Märchen wird lebendig',
     description: 'MERA – persönliche Geschenke und Erinnerungsstücke zur Geburt, handgefertigte Holzaccessoires fürs Kinderzimmer.',
