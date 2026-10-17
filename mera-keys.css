@@ -1,0 +1,97 @@
+/* Scoped embellishments: the existing layout, typography and shop stay intact. */
+.mera-key-location{position:relative;padding-bottom:72px}
+.mera-hidden-key{position:absolute;bottom:12px;right:7%;width:48px;height:54px;padding:3px 8px;border:0;background:transparent;color:#947647;cursor:pointer;touch-action:manipulation;border-radius:50%}
+.mera-hidden-key-2{right:auto;left:8%;transform:rotate(-24deg)}
+.mera-hidden-key-3{right:12%;transform:rotate(18deg)}
+.mera-hidden-key-4{right:auto;left:12%;transform:rotate(-12deg)}
+.mera-hidden-key-5{right:8%;bottom:22px}
+.mera-hidden-key .mera-key-art,.mera-key-progress .mera-key-art{width:100%;height:100%;display:block;object-fit:contain}
+.mera-hidden-key:hover,.mera-hidden-key.is-found{color:#80602e}
+.mera-hidden-key:focus-visible,.mera-key-progress:focus-visible,.mera-key-close:focus-visible{outline:2px solid #80602e;outline-offset:4px}
+.mera-hidden-key.is-glinting{animation:mera-glint 1s ease-out}
+.mera-key-progress{display:flex;align-items:center;gap:8px;width:max-content;margin:24px auto 0;padding:7px 12px;border:1px solid #d8c7b5;border-radius:30px;background:transparent;color:#716047;font:12px Georgia,serif;letter-spacing:.12em;cursor:pointer;min-height:44px}
+.mera-key-progress .mera-key-art{width:20px;height:20px}
+.mera-key-dialog{box-sizing:border-box;width:min(520px,calc(100% - 32px));max-height:calc(100dvh - 32px);padding:58px 40px 38px;border:1px solid #c9ae7b;background:#faf6ef;color:#403c35;text-align:center;box-shadow:0 24px 100px #211b1833;overflow:auto}
+.mera-key-dialog::backdrop{background:#28231dd0;backdrop-filter:blur(4px)}
+.mera-key-close{position:absolute;right:12px;top:10px;border:0;background:transparent;color:#716047;min-height:44px;padding:10px;font:12px Arial,sans-serif;cursor:pointer}
+.mera-key-emblem{position:relative;width:110px;height:150px;margin:0 auto 24px;color:#a0834b}
+.mera-key-emblem .mera-key-art{width:100%;height:126px;object-fit:contain;position:relative;z-index:1}
+.mera-key-kicker{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#776344}
+.mera-key-dialog h2{font-size:36px}
+.mera-key-dialog p{line-height:1.8}
+.mera-key-dialog [hidden]{display:none!important}
+.mera-secret-poem{white-space:pre-line;font:italic 16px/1.85 Georgia,serif}
+.mera-secret-form{text-align:left;margin-top:28px}
+.mera-secret-form label{display:block;font-size:13px;color:#655338}
+.mera-secret-form #mera-secret-help{font-size:12px;margin:6px 0 14px;color:#716047}
+.mera-secret-fields{display:flex;gap:10px;flex-wrap:wrap}
+.mera-secret-fields input{flex:1 1 160px;min-width:0;width:100%;padding:13px;border:1px solid #b9a582;border-radius:0;background:#fffdf9;color:#403c35;font:16px Georgia,serif;letter-spacing:.08em}
+.mera-secret-fields button{flex:1 1 140px;padding:13px 16px;min-height:46px;border:1px solid #846a40;background:#846a40;color:#fffdf9;font:13px Arial,sans-serif;cursor:pointer}
+.mera-secret-fields button:hover{background:#705835}
+.mera-secret-fields :focus-visible{outline:2px solid #80602e;outline-offset:3px}
+.mera-secret-fields input[aria-invalid=true]{border-color:#994c36}
+#mera-secret-error{color:#884631;font-size:13px;margin:10px 0 0}
+#mera-secret-error:empty{display:none}
+.mera-gift-code-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;margin:24px 0 10px}
+.mera-key-dialog .mera-gift-code{font:28px Georgia,serif;letter-spacing:.2em;padding:16px;border:1px solid #c9ae7b;background:#fffaf0;user-select:all}
+.mera-gift-claim{font-size:14px}
+#mera-gift-title:focus{outline:none}
+.mera-secret-content{margin-top:28px;padding-top:28px;border-top:1px solid #d8c7b5}
+.mera-secret-content h3{font-size:24px}
+.mera-key-storage{font-size:12px;color:#716047}
+.mera-key-storage:empty{display:none}
+.mera-key-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.is-discovering .mera-secret-content{animation:mera-reveal 1s ease both}
+.is-unlocking .mera-gift{animation:mera-reveal 2s ease both}
+@keyframes mera-glint{35%{color:#d3b56e;filter:drop-shadow(0 0 9px #c6a05f)}100%{filter:none}}
+@keyframes mera-reveal{0%,65%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:none}}
+@media(max-width:700px){.mera-key-dialog{padding:60px 24px 28px}.mera-key-dialog h2{font-size:30px}}
+/* Discovery stays discreet; the collected artwork can be inspected at a readable size. */
+.mera-key-dialog{width:min(760px,calc(100% - 24px));padding:16px 32px 32px}
+.mera-key-close{position:sticky;top:0;display:block;margin-left:auto;z-index:5;background:#faf6eff5}
+.mera-key-emblem{width:220px;height:auto;margin:0 auto 24px}
+.mera-key-inspect{display:block;width:100%;border:0;background:transparent;color:#716047;padding:0;cursor:zoom-in}
+.mera-key-emblem .mera-key-art{height:300px;width:100%;object-fit:contain}
+.mera-key-inspect span{display:block;font:12px Arial,sans-serif;text-decoration:underline;text-underline-offset:4px;padding:10px}
+.mera-key-inspect:focus-visible,.mera-key-gallery button:focus-visible,.mera-detail-close:focus-visible{outline:2px solid #80602e;outline-offset:4px}
+.mera-real-lock{display:none;position:relative;width:170px;height:170px;margin:auto}
+.mera-real-lock img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
+.mera-lock-open{opacity:0}
+.is-secret .mera-key-inspect{display:none}
+.is-secret .mera-real-lock{display:block}
+.is-solved .mera-lock-open{opacity:1}
+.is-solved .mera-lock-closed{opacity:0}
+.mera-key-collection{margin:0 0 26px}
+.mera-key-collection h3{font-size:22px}
+.mera-key-dialog .mera-collection-hint{font-size:13px;color:#716047;margin-bottom:14px}
+.mera-key-gallery{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.mera-key-gallery button{min-width:0;border:1px solid #dfd1bb;background:#fffaf3;padding:8px 4px;color:#716047;cursor:zoom-in}
+.mera-key-gallery .mera-key-art{display:block;width:100%;height:170px;object-fit:contain}
+.mera-key-gallery button span{font:11px Georgia,serif;display:block;padding:8px 0 2px}
+.mera-secret-form,.mera-secret-poem,.mera-gift{max-width:480px;margin-left:auto;margin-right:auto}
+.is-secret{width:min(960px,calc(100% - 24px))}
+.is-secret .mera-real-lock{width:115px;height:115px}
+.is-secret .mera-key-emblem{margin-bottom:12px}
+.is-secret .mera-key-kicker{display:none}
+.is-secret .mera-secret-content{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:28px;align-items:start;margin-top:20px;padding-top:24px}
+.is-secret .mera-key-collection{grid-column:1;grid-row:1 / span 2;margin:0}
+.is-secret .mera-secret-poem{grid-column:2;margin-top:0}
+.is-secret .mera-secret-form{grid-column:2;width:100%;margin-top:4px}
+.is-secret .mera-gift{grid-column:1 / -1}
+.mera-detail-dialog{box-sizing:border-box;width:min(820px,calc(100% - 24px));max-height:calc(100dvh - 24px);overflow:auto;border:1px solid #c9ae7b;padding:18px 28px 28px;background:#faf6ef;color:#403c35;text-align:center;box-shadow:0 24px 100px #211b1844}
+.mera-detail-dialog::backdrop{background:#28231de8;backdrop-filter:blur(5px)}
+.mera-detail-close{display:block;position:sticky;top:0;z-index:2;margin-left:auto;min-height:44px;border:0;background:#faf6eff5;color:#716047;padding:10px;cursor:pointer}
+.mera-detail-dialog h2{font-size:30px;margin:12px 0 24px}
+.mera-detail-layout{display:grid;grid-template-columns:1fr 2fr;gap:20px;align-items:center}
+.mera-detail-layout figure{min-width:0;margin:0}
+.mera-whole-key .mera-key-art{display:block;width:100%;height:430px;object-fit:contain}
+.mera-detail-layout figcaption{font:12px Arial,sans-serif;color:#716047;line-height:1.5;margin-top:16px}
+.mera-detail-stage{position:relative;aspect-ratio:1;overflow:hidden;background:#fffaf3;border:1px solid #dfd1bb}
+.mera-detail-stage .mera-key-art{position:absolute;left:50%;top:50%;width:calc(100% * var(--zoom));max-width:none;height:auto;transform:translate(calc(-1 * var(--focus-x)),calc(-1 * var(--focus-y)))}
+.is-unlocking .mera-lock-open{animation:mera-lock-open 1.6s ease both}
+.is-unlocking .mera-lock-closed{animation:mera-lock-closed 1.6s ease both}
+.is-unlocking .mera-real-lock{animation:mera-glint 1.6s ease both}
+@keyframes mera-lock-open{0%,35%{opacity:0;transform:translateY(3px)}100%{opacity:1;transform:none}}
+@keyframes mera-lock-closed{0%,35%{opacity:1}100%{opacity:0}}
+@media(max-width:700px){.mera-key-dialog{padding:12px 18px 24px}.mera-key-gallery{gap:5px}.mera-key-gallery .mera-key-art{height:110px}.mera-key-gallery button{padding:5px 2px}.mera-real-lock{width:135px;height:135px}.mera-detail-dialog{padding:12px 16px 24px}.mera-detail-dialog h2{font-size:25px}.mera-detail-layout{gap:10px}.mera-whole-key .mera-key-art{height:280px}.mera-secret-poem{font-size:15px}.is-secret .mera-secret-content{display:block}.is-secret .mera-key-collection{margin-bottom:24px}.is-secret .mera-real-lock{width:100px;height:100px}}
+@media(prefers-reduced-motion:reduce){.mera-hidden-key.is-glinting,.is-unlocking .mera-lock-open,.is-unlocking .mera-lock-closed,.is-unlocking .mera-real-lock,.is-discovering .mera-secret-content,.is-unlocking .mera-gift{animation:none}}
