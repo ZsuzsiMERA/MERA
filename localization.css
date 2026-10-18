@@ -23,3 +23,4 @@
   .concept-header{flex-wrap:wrap;gap:12px}
   .concept-header .header-actions{flex:1 0 100%;min-width:0;flex-wrap:wrap;justify-content:space-between;gap:12px}
 }
+.control-icon{margin-right:5px;font-size:.95em;line-height:1}

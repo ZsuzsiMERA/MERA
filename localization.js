@@ -535,7 +535,18 @@ try {
 } catch (error) {
   console.warn('Could not read the saved language preference.', error);
 }
-applyLanguage(translations[savedLanguage] ? savedLanguage : 'hu');
+// With no saved choice, follow the visitor's browser language if we support it
+// (Hungarian / English / German), so non-Hungarian visitors aren't stranded on
+// the Hungarian default having to find the switch.
+function detectLanguage() {
+  const candidates = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+  for (const entry of candidates) {
+    const code = String(entry).slice(0, 2).toLowerCase();
+    if (translations[code]) return code;
+  }
+  return 'hu';
+}
+applyLanguage(translations[savedLanguage] ? savedLanguage : detectLanguage());
 
 languagePicker?.addEventListener('change', () => {
   applyLanguage(languagePicker.value);
