@@ -65,7 +65,7 @@
   const words = () => copy[document.documentElement.lang] || copy.hu;
   // Hidden initials belong to the artwork; stable IDs preserve existing progress.
   const keyAssets = ['sofia-sz', 'sofia-o', 'sofia-f', 'sofia-i', 'sofia-a'];
-  const keyArts = keyAssets.map(asset => '<img class="mera-key-art" src="assets/keys/' + asset + '.png" alt="" aria-hidden="true" width="1024" height="1536" decoding="async">');
+  const keyArts = keyAssets.map(asset => '<img class="mera-key-art" src="assets/keys/' + asset + '.webp" alt="" aria-hidden="true" width="1024" height="1536" decoding="async" loading="lazy">');
   const keyArt = keyArts[0];
   // Focal points locate the actual engraved/cut-out ornament, without adding letters over the artwork.
   const keyDetails = [
@@ -99,7 +99,7 @@
   dialog.innerHTML = '<button type="button" class="mera-key-close"></button><div class="mera-key-emblem">' + keyArt + '</div><p class="mera-key-kicker"></p><h2 id="mera-secret-title"></h2><p class="mera-key-message"></p><div class="mera-secret-content" hidden><p class="mera-secret-poem"></p><form class="mera-secret-form" novalidate><label for="mera-secret-word"></label><p id="mera-secret-help"></p><div class="mera-secret-fields"><input id="mera-secret-word" name="secret-word" type="text" maxlength="64" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="mera-secret-help mera-secret-error" required><button type="submit"></button></div><p id="mera-secret-error" role="alert" aria-atomic="true"></p></form><section class="mera-gift" aria-labelledby="mera-gift-title" hidden><h3 id="mera-gift-title" tabindex="-1"></h3><p class="mera-gift-message"></p><p class="mera-gift-code-label"></p><p class="mera-gift-code"></p><p class="mera-gift-claim"></p></section></div><p class="mera-key-storage"></p>';
   document.body.append(dialog);
   const emblem = dialog.querySelector('.mera-key-emblem');
-  emblem.innerHTML = '<button type="button" class="mera-key-inspect">' + keyArt + '<span></span></button><div class="mera-real-lock" aria-hidden="true"><img class="mera-lock-closed" src="assets/keys/lock-closed.png" alt="" width="1024" height="1024"><img class="mera-lock-open" src="assets/keys/lock-open.png" alt="" width="1024" height="1024"></div>';
+  emblem.innerHTML = '<button type="button" class="mera-key-inspect">' + keyArt + '<span></span></button><div class="mera-real-lock" aria-hidden="true"><img class="mera-lock-closed" src="assets/keys/lock-closed.webp" alt="" width="1024" height="1024" loading="lazy"><img class="mera-lock-open" src="assets/keys/lock-open.webp" alt="" width="1024" height="1024" loading="lazy"></div>';
   const collection = document.createElement('section');
   collection.className = 'mera-key-collection';
   collection.setAttribute('aria-labelledby', 'mera-collection-title');
@@ -127,7 +127,7 @@
     if (!found.has(ids[index])) return;
     detailReturnFocus = trigger;
     const focal = keyDetails[index];
-    detailDialog.querySelectorAll('.mera-key-art').forEach(img => { img.src = 'assets/keys/' + keyAssets[index] + '.png'; });
+    detailDialog.querySelectorAll('.mera-key-art').forEach(img => { img.src = 'assets/keys/' + keyAssets[index] + '.webp'; });
     const stage = detailDialog.querySelector('.mera-detail-stage');
     stage.style.setProperty('--focus-x', focal.x);
     stage.style.setProperty('--focus-y', focal.y);
