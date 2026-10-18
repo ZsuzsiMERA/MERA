@@ -1,0 +1,8 @@
+Sparkle sound effect.
+Creator: Musitune Industry
+Source: https://www.youtube.com/watch?v=q01KHO6u7yE
+License shown by the source: Creative Commons Attribution license (reuse allowed)
+License: CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/
+YouTube license information: https://www.youtube.com/t/creative_commons
+Downloaded: 2026-10-18
+Changes: audio extracted from the video and encoded as MP3; no pitch, timing or composition changes. Playback volume is reduced on MERA.
