@@ -95,3 +95,17 @@
 @keyframes mera-lock-closed{0%,35%{opacity:1}100%{opacity:0}}
 @media(max-width:700px){.mera-key-dialog{padding:12px 18px 24px}.mera-key-gallery{gap:5px}.mera-key-gallery .mera-key-art{height:110px}.mera-key-gallery button{padding:5px 2px}.mera-real-lock{width:135px;height:135px}.mera-detail-dialog{padding:12px 16px 24px}.mera-detail-dialog h2{font-size:25px}.mera-detail-layout{gap:10px}.mera-whole-key .mera-key-art{height:280px}.mera-secret-poem{font-size:15px}.is-secret .mera-secret-content{display:block}.is-secret .mera-key-collection{margin-bottom:24px}.is-secret .mera-real-lock{width:100px;height:100px}}
 @media(prefers-reduced-motion:reduce){.mera-hidden-key.is-glinting,.is-unlocking .mera-lock-open,.is-unlocking .mera-lock-closed,.is-unlocking .mera-real-lock,.is-discovering .mera-secret-content,.is-unlocking .mera-gift{animation:none}}
+
+/* A single soft discovery glow, with three small, staggered points of light. */
+.mera-discovery-sparkles{position:absolute;inset:0;pointer-events:none;z-index:3;opacity:0}
+.mera-discovery-sparkles i{position:absolute;width:12px;height:12px;background:#e5c37b;clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);opacity:0}
+.mera-discovery-sparkles i:nth-child(1){left:26%;top:18%;--glint-delay:140ms}
+.mera-discovery-sparkles i:nth-child(2){right:20%;top:39%;width:8px;height:8px;--glint-delay:380ms}
+.mera-discovery-sparkles i:nth-child(3){left:34%;bottom:24%;width:7px;height:7px;--glint-delay:620ms}
+.is-key-discovery .mera-discovery-sparkles{animation:mera-discovery-finish 1.8s linear both}
+.is-key-discovery .mera-discovery-sparkles i{animation:mera-discovery-spark 850ms ease-out var(--glint-delay) both}
+.is-key-discovery .mera-key-emblem .mera-key-inspect>.mera-key-art,.is-key-discovery .mera-real-lock{animation:mera-discovery-glow 1.6s ease-out both}
+@keyframes mera-discovery-glow{0%,100%{filter:brightness(1) drop-shadow(0 0 0 transparent)}32%{filter:brightness(1.12) drop-shadow(0 0 7px #d6b47788)}65%{filter:brightness(1.04) drop-shadow(0 0 3px #d6b47744)}}
+@keyframes mera-discovery-spark{0%{opacity:0;transform:scale(.35) rotate(-12deg)}35%{opacity:.85;transform:scale(1) rotate(0)}100%{opacity:0;transform:scale(.65) translateY(-5px) rotate(12deg)}}
+@keyframes mera-discovery-finish{0%,99%{opacity:1}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.is-key-discovery .mera-discovery-sparkles,.is-key-discovery .mera-discovery-sparkles i,.is-key-discovery .mera-key-emblem .mera-key-inspect>.mera-key-art,.is-key-discovery .mera-real-lock{animation:none}.mera-discovery-sparkles{display:none}}

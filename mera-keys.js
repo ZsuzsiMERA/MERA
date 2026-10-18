@@ -206,6 +206,21 @@
       dialog.querySelector('.mera-key-close').focus();
     }
   }
+  // Decorative light stays inside the modal so its backdrop cannot hide it.
+  const sparkles = document.createElement('span');
+  sparkles.className = 'mera-discovery-sparkles';
+  sparkles.setAttribute('aria-hidden', 'true');
+  sparkles.innerHTML = '<i></i><i></i><i></i>';
+  emblem.append(sparkles);
+  function celebrateDiscovery() {
+    dialog.classList.remove('is-key-discovery');
+    void emblem.offsetWidth;
+    dialog.classList.add('is-key-discovery');
+  }
+  sparkles.addEventListener('animationend', event => {
+    if (event.animationName === 'mera-discovery-finish') dialog.classList.remove('is-key-discovery');
+  });
+  dialog.addEventListener('close', () => dialog.classList.remove('is-key-discovery'));
   locations.forEach((selector, index) => {
     const section = document.querySelector(selector);
     if (!section) return;
@@ -218,12 +233,15 @@
       const isNew = !found.has(ids[index]);
       found.add(ids[index]);
       try { localStorage.setItem(storageKey, JSON.stringify([...found])); } catch { storageAvailable = false; }
-      button.classList.remove('is-glinting');
-      void button.offsetWidth;
-      button.classList.add('is-glinting');
+      if (isNew) {
+        button.classList.remove('is-glinting');
+        void button.offsetWidth;
+        button.classList.add('is-glinting');
+      }
       render();
       status.textContent = `${words().messages[index]} ${words().progress}: ${found.size}/5`;
       open(index, found.size === 5 && !solved, isNew && found.size === 5);
+      if (isNew) celebrateDiscovery();
     });
     button.addEventListener('animationend', () => button.classList.remove('is-glinting'));
     buttons.push(button);
