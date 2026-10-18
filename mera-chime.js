@@ -7,14 +7,12 @@
   let requestId = 0;
   const audioUrl = new URL('assets/mera-original-sparkle.mp3', document.currentScript.src);
   const labels = {
-    hu: { preview: 'Csilingelés kipróbálása', source: 'Hangforrás' },
-    en: { preview: 'Preview chime', source: 'Sound credit' },
-    de: { preview: 'Klang anhören', source: 'Klangquelle' }
+    hu: { source: 'Hangforrás' },
+    en: { source: 'Sound credit' },
+    de: { source: 'Klangquelle' }
   };
-  const controls = [];
-  function renderControls() {
+  function renderCredit() {
     const text = labels[document.documentElement.lang] || labels.hu;
-    controls.forEach(preview => { preview.textContent = text.preview; });
     const credit = document.querySelector('.mera-chime-source');
     if (credit) credit.textContent = text.source;
   }
@@ -75,22 +73,7 @@
     }
   }
   window.MeraChime = Object.freeze({ play });
-  function addControls(parent) {
-    if (!parent) return;
-    const group = document.createElement('div');
-    group.className = 'mera-chime-controls';
-    const preview = document.createElement('button');
-    preview.type = 'button';
-    preview.className = 'mera-chime-preview';
-    preview.addEventListener('click', play);
-    group.append(preview);
-    controls.push(preview);
-    parent.append(group);
-  }
-  document.addEventListener('DOMContentLoaded', () => {
-    addControls(document.querySelector('.mera-key-dialog'));
-    renderControls();
-  });
-  document.addEventListener('mera:languagechange', renderControls);
+  document.addEventListener('DOMContentLoaded', renderCredit);
+  document.addEventListener('mera:languagechange', renderCredit);
   document.addEventListener('visibilitychange', () => { if (document.hidden) silence(); });
 })();
