@@ -42,3 +42,25 @@
 @media(max-width:950px){.shop-products{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.shop-section{padding:0 22px 20px}.shop-heading{display:block}.shop-notice{margin-top:13px}.shop-products{gap:15px}.shop-product-body{padding:13px}.shop-product h3{font-size:18px}}
 @media(max-width:420px){.shop-products{grid-template-columns:1fr}.shop-product{display:grid;grid-template-columns:38% 1fr}.shop-product>img{height:100%;aspect-ratio:auto;object-fit:cover}.shop-product-body{padding:14px}.shop-product-body>p:not(.shop-price){min-height:0}.basket-item{align-items:flex-start;flex-direction:column;gap:9px}.basket-item-controls{width:100%}}
+.shop-lead{margin:8px 0 0;color:#716457;font-size:14px}
+.shop-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin-bottom:22px}
+.shop-filters{display:flex;flex-wrap:wrap;gap:8px}
+.shop-price-filters{padding-left:18px;border-left:1px solid var(--line)}
+.shop-filter{padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);cursor:pointer;font:inherit;font-size:13px}
+.shop-filter:hover{background:var(--sand)}
+.shop-filter.is-active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.shop-filter:focus-visible{outline:3px solid #805b35;outline-offset:3px}
+.shop-search{flex:1;min-width:180px;max-width:280px;margin-left:auto;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font:inherit;font-size:13px}
+.shop-search:focus-visible{outline:3px solid #805b35;outline-offset:2px}
+.shop-empty{margin:24px 0;color:#716457;text-align:center}
+.shop-all{margin:26px 0 0;text-align:center}
+@media(max-width:700px){.shop-price-filters{padding-left:0;border-left:0}.shop-search{margin-left:0;max-width:none}}
+.basket-item-main{display:flex;align-items:center;gap:12px;min-width:0}
+.basket-item-thumb{width:46px;height:46px;flex:none;border-radius:8px;object-fit:cover;background:var(--sand);border:1px solid var(--line)}
+.basket-item-details{min-width:0}
+.shop-add{transition:background .2s ease,transform .08s ease}
+.shop-add.is-added{background:#5f7d57}
+@keyframes mera-badge-pop{0%{transform:scale(1)}35%{transform:scale(1.6)}100%{transform:scale(1)}}
+.shop-basket-count.is-bumped{animation:mera-badge-pop .5s ease}
+.mera-fly{position:fixed;z-index:1000;border-radius:10px;object-fit:cover;pointer-events:none;box-shadow:0 10px 30px rgba(64,48,32,.28);will-change:transform,opacity;transition:transform .62s cubic-bezier(.2,.7,.25,1),opacity .62s ease}
+@media(prefers-reduced-motion:reduce){.shop-basket-count.is-bumped{animation:none}.mera-fly{display:none}}

@@ -1,0 +1,202 @@
+[
+  {
+    "id": "nameplate",
+    "category": "personalised",
+    "featured": true,
+    "image": "assets/shop/nameplate.svg",
+    "price": {
+      "huf": 6900,
+      "eur": 17
+    },
+    "name": {
+      "hu": "Névtábla",
+      "en": "Name plaque",
+      "de": "Namensschild"
+    },
+    "description": {
+      "hu": "Személyre szabható névtábla a babaszobába.",
+      "en": "A personalised name plaque for the nursery.",
+      "de": "Ein personalisiertes Namensschild fürs Kinderzimmer."
+    }
+  },
+  {
+    "id": "cushion",
+    "category": "textile",
+    "featured": false,
+    "image": "assets/shop/cushion.svg",
+    "price": {
+      "huf": 12500,
+      "eur": 31
+    },
+    "name": {
+      "hu": "Lenpárna",
+      "en": "Linen cushion",
+      "de": "Leinenkissen"
+    },
+    "description": {
+      "hu": "45 × 45 cm-es, mosott lenvászon párna.",
+      "en": "45 × 45 cm cushion in washed linen.",
+      "de": "45 × 45 cm großes Kissen aus gewaschenem Leinen."
+    }
+  },
+  {
+    "id": "vase",
+    "category": "decor",
+    "featured": false,
+    "image": "assets/shop/vase.svg",
+    "price": {
+      "huf": 18900,
+      "eur": 47
+    },
+    "name": {
+      "hu": "Kerámiaváza",
+      "en": "Ceramic vase",
+      "de": "Keramikvase"
+    },
+    "description": {
+      "hu": "Kézi korongozással készült, 25 cm-es kőedényváza.",
+      "en": "Hand-thrown stoneware vase, 25 cm tall.",
+      "de": "Handgedrehte Steinzeugvase, 25 cm hoch."
+    }
+  },
+  {
+    "id": "mobile",
+    "category": "decor",
+    "featured": true,
+    "image": "assets/shop/mobile.svg",
+    "price": {
+      "huf": 9900,
+      "eur": 25
+    },
+    "name": {
+      "hu": "Fa forgó",
+      "en": "Wooden mobile",
+      "de": "Holzmobile"
+    },
+    "description": {
+      "hu": "Kézzel festett fa forgó a kiságy fölé.",
+      "en": "A hand-painted wooden mobile for above the cot.",
+      "de": "Ein handbemaltes Holzmobile für über das Bettchen."
+    }
+  },
+  {
+    "id": "wall-moon",
+    "category": "decor",
+    "featured": true,
+    "image": "assets/shop/wall-moon.svg",
+    "price": {
+      "huf": 8500,
+      "eur": 21
+    },
+    "name": {
+      "hu": "Falikép – Hold és csillagok",
+      "en": "Wall art – Moon and stars",
+      "de": "Wandbild – Mond und Sterne"
+    },
+    "description": {
+      "hu": "Fából kivágott hold és csillagok a falra.",
+      "en": "Moon and stars cut from wood for the wall.",
+      "de": "Mond und Sterne aus Holz für die Wand."
+    }
+  },
+  {
+    "id": "growth-ruler",
+    "category": "personalised",
+    "featured": false,
+    "image": "assets/shop/growth-ruler.svg",
+    "price": {
+      "huf": 11900,
+      "eur": 30
+    },
+    "name": {
+      "hu": "Növekedésmérő léc",
+      "en": "Growth ruler",
+      "de": "Messlatte"
+    },
+    "description": {
+      "hu": "Fa növekedésmérő, amely évekig elkíséri a gyermeket.",
+      "en": "A wooden growth ruler that lasts through the years.",
+      "de": "Eine hölzerne Messlatte, die über Jahre begleitet."
+    }
+  },
+  {
+    "id": "name-letters",
+    "category": "personalised",
+    "featured": false,
+    "image": "assets/shop/name-letters.svg",
+    "price": {
+      "huf": 7500,
+      "eur": 19
+    },
+    "name": {
+      "hu": "Fa betűk névre",
+      "en": "Wooden name letters",
+      "de": "Holzbuchstaben mit Namen"
+    },
+    "description": {
+      "hu": "Egyedi fa betűk a gyermek nevével.",
+      "en": "Individual wooden letters spelling the child's name.",
+      "de": "Einzelne Holzbuchstaben mit dem Namen des Kindes."
+    }
+  },
+  {
+    "id": "night-light",
+    "category": "lighting",
+    "featured": true,
+    "image": "assets/shop/night-light.svg",
+    "price": {
+      "huf": 15900,
+      "eur": 40
+    },
+    "name": {
+      "hu": "Fa éjjeli lámpa",
+      "en": "Wooden night light",
+      "de": "Nachtlicht aus Holz"
+    },
+    "description": {
+      "hu": "Meleg fényű fa éjjeli lámpa a nyugodt estékhez.",
+      "en": "A warm wooden night light for calm evenings.",
+      "de": "Ein warmes Nachtlicht aus Holz für ruhige Abende."
+    }
+  },
+  {
+    "id": "keepsake-box",
+    "category": "keepsake",
+    "featured": false,
+    "image": "assets/shop/keepsake-box.svg",
+    "price": {
+      "huf": 13500,
+      "eur": 34
+    },
+    "name": {
+      "hu": "Emlékdoboz",
+      "en": "Keepsake box",
+      "de": "Erinnerungsbox"
+    },
+    "description": {
+      "hu": "Fa emlékdoboz az első apró kincseknek.",
+      "en": "A wooden keepsake box for the first little treasures.",
+      "de": "Eine Erinnerungsbox aus Holz für die ersten kleinen Schätze."
+    }
+  },
+  {
+    "id": "toy-basket",
+    "category": "storage",
+    "featured": false,
+    "image": "assets/shop/toy-basket.svg",
+    "price": {
+      "huf": 14900,
+      "eur": 37
+    },
+    "name": {
+      "hu": "Fonott játékkosár",
+      "en": "Woven toy basket",
+      "de": "Geflochtener Spielzeugkorb"
+    },
+    "description": {
+      "hu": "Puha fonott kosár a játékok rendben tartásához.",
+      "en": "A soft woven basket to keep toys tidy.",
+      "de": "Ein weicher Flechtkorb, um Spielzeug ordentlich zu halten."
+    }
+  }
+]

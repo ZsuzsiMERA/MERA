@@ -1,5 +1,10 @@
 const translations = {
   hu: {
+    currencyLabel: 'Pénznem',
+    allProducts: 'Összes termék',
+    shopHeading: 'Bolt',
+    shopTitle: 'MERA | Bolt',
+    shopIntro: 'Teljes kínálatunk egy helyen.',
     ft_footerTag: "A legszebb kezdetekhez.",
     ft_footerIntro: "Személyes részletek, amelyekből emlék lesz.",
     ft_footerOrder: "Rendelés és átvétel",
@@ -140,6 +145,11 @@ const translations = {
     collectionOutroCopy: 'Személyes, kézzel készült részletek a legszebb kezdetekhez.'
   },
   en: {
+    currencyLabel: 'Currency',
+    allProducts: 'All products',
+    shopHeading: 'Shop',
+    shopTitle: 'MERA | Shop',
+    shopIntro: 'Our full range in one place.',
     ft_footerTag: "For life’s loveliest beginnings.",
     ft_footerIntro: "Personal details that become memories.",
     ft_footerOrder: "Orders and delivery",
@@ -280,6 +290,11 @@ const translations = {
     collectionOutroCopy: 'Personal, handmade details for life’s loveliest beginnings.'
   },
   de: {
+    currencyLabel: 'Währung',
+    allProducts: 'Alle Produkte',
+    shopHeading: 'Shop',
+    shopTitle: 'MERA | Shop',
+    shopIntro: 'Unser gesamtes Sortiment an einem Ort.',
     ft_footerTag: "Für die schönsten Anfänge.",
     ft_footerIntro: "Persönliche Details, die zu Erinnerungen werden.",
     ft_footerOrder: "Bestellung und Versand",
