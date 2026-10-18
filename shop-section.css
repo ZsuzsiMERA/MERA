@@ -64,3 +64,31 @@
 .shop-basket-count.is-bumped{animation:mera-badge-pop .5s ease}
 .mera-fly{position:fixed;z-index:1000;border-radius:10px;object-fit:cover;pointer-events:none;box-shadow:0 10px 30px rgba(64,48,32,.28);will-change:transform,opacity;transition:transform .62s cubic-bezier(.2,.7,.25,1),opacity .62s ease}
 @media(prefers-reduced-motion:reduce){.shop-basket-count.is-bumped{animation:none}.mera-fly{display:none}}
+.basket-confirm{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.basket-confirm-text{font-size:13px;color:var(--ink)}
+.basket-confirm-yes,.basket-confirm-no{border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;font:inherit;font-size:12px;padding:7px 12px}
+.basket-confirm-yes{background:#8a3b3b;color:#fff;border-color:#8a3b3b}
+.basket-confirm-yes:focus-visible,.basket-confirm-no:focus-visible,.basket-checkout:focus-visible{outline:3px solid #805b35;outline-offset:3px}
+.basket-checkout{margin-top:14px}
+.checkout{padding:0 7% 50px;scroll-margin-top:25px}
+.checkout h2{margin-bottom:8px}
+.checkout-intro{max-width:560px;color:#716457;margin:0 0 22px}
+.checkout-summary{list-style:none;margin:0 0 8px;padding:0;max-width:440px;display:grid;gap:7px}
+.checkout-summary li{display:flex;justify-content:space-between;gap:16px;font-size:14px}
+.checkout-total{display:flex;justify-content:space-between;gap:16px;max-width:440px;margin:0 0 8px;padding-top:9px;border-top:1px solid var(--line);font-size:16px}
+.checkout-total strong{color:var(--ink)}
+.checkout-form{display:grid;gap:14px;max-width:440px;margin-top:20px}
+.checkout-form label{display:grid;gap:5px;font-size:13px;color:#716457}
+.checkout-optional{color:#9a8d7b}
+.checkout-form input,.checkout-form textarea{font:inherit;padding:10px 12px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:0}
+.checkout-form input:focus-visible,.checkout-form textarea:focus-visible{outline:3px solid #805b35;outline-offset:2px}
+.checkout-form textarea{min-height:82px;resize:vertical}
+.checkout-form .button{justify-self:start;min-height:44px}
+.checkout-hp{position:absolute;left:-9999px;width:1px;height:1px}
+.checkout-status{min-height:1.2em;margin:0;color:#716457;font-size:13px}
+.checkout-thanks{max-width:480px}
+@media(max-width:700px){.checkout{padding:0 22px 40px}}
+main.checkout{padding-top:30px}
+.checkout-back{display:inline-block;color:#716457;font-size:14px;text-decoration:none}
+.checkout-back:hover{text-decoration:underline}
+.checkout-empty{max-width:460px}

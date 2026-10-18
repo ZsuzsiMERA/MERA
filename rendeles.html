@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="hu">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="MERA rendelés – add meg az adataidat, és e-mailben elküldjük a rendelést." data-i18n-content="description"><title data-i18n="orderTitle">MERA | Rendelés</title>
+<link rel="canonical" href="https://merahome.hu/rendeles">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#f3e9db">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MERA">
+<meta property="og:locale" content="hu_HU">
+<meta property="og:title" content="MERA | Rendelés">
+<meta property="og:url" content="https://merahome.hu/rendeles">
+<meta property="og:image" content="https://merahome.hu/assets/og-image.jpg">
+<link rel="stylesheet" href="styles.css?v=trust-compact-2"><link rel="stylesheet" href="localization.css"><link rel="stylesheet" href="shop-section.css"><link rel="stylesheet" href="footer.css?v=1">
+<script src="localization.js?v=footer-1" defer></script><script src="currency.js" defer></script><script src="checkout.js" defer></script></head>
+<body>
+<a class="skip" href="#main" data-i18n="skipLink">Ugrás a tartalomhoz</a>
+<header class="home-header"><a class="brand" href="./" aria-label="MERA főoldal" data-i18n-aria-label="brandLabel">MERA</a><nav aria-label="Fő navigáció" data-i18n-aria-label="navLabel"><a href="index.html#darabok" data-i18n="navArt">Művészi darabok</a><a href="bolt.html" data-i18n="navProducts">Bolt</a><a href="index.html#rolunk" data-i18n="navAbout">Rólunk</a><a href="mailto:hello@merahome.hu" data-i18n="navContact">Kapcsolat</a></nav><a class="shop-basket-link" href="bolt.html#shopBasket" data-basket-link><span data-i18n="basketLabel">Kosár</span><span class="shop-basket-count" data-basket-count>0</span></a><label class="language-control currency-control"><span data-i18n="currencyLabel">Pénznem</span><select id="currency" name="currency"><option value="huf">HUF (Ft)</option><option value="eur">EUR (€)</option></select></label><label class="language-control"><span data-i18n="languageLabel">Nyelv</span><select id="language" name="language"><option value="hu">Magyar</option><option value="en">English</option><option value="de">Deutsch</option></select></label></header>
+<main id="main" class="checkout">
+<p><a class="checkout-back" href="bolt.html" data-i18n="coBackToShop">Vissza a boltba</a></p>
+<h1 data-i18n="checkoutTitle">Rendelés</h1>
+<p class="checkout-intro" data-i18n="checkoutIntro">Add meg az adataidat, és elküldjük nekünk a rendelést. Online fizetés nincs; e-mailben egyeztetünk.</p>
+<div class="checkout-empty" data-checkout-empty hidden>
+<p data-i18n="coEmptyError">A kosarad üres.</p>
+<p><a class="button" href="bolt.html" data-i18n="coBackToShop">Vissza a boltba</a></p>
+</div>
+<div class="checkout-order" data-checkout-order hidden>
+<h2 data-i18n="coSummaryHeading">A rendelésed</h2>
+<ul class="checkout-summary" data-checkout-summary></ul>
+<p class="checkout-total"><span data-i18n="basketTotal">Összesen</span> <strong data-checkout-total></strong></p>
+<form class="checkout-form" data-checkout-form novalidate>
+<label><span data-i18n="coName">Név</span><input name="name" type="text" required autocomplete="name"></label>
+<label><span data-i18n="coEmail">E-mail</span><input name="email" type="email" required autocomplete="email"></label>
+<label><span data-i18n="coPhone">Telefonszám</span><input name="phone" type="tel" required autocomplete="tel"></label>
+<label><span data-i18n="coAddress">Szállítási cím</span><textarea name="address" required autocomplete="street-address"></textarea></label>
+<label><span data-i18n="coMessage">Megjegyzés</span> <span class="checkout-optional" data-i18n="coOptional">(nem kötelező)</span><textarea name="message"></textarea></label>
+<input type="checkbox" name="botcheck" class="checkout-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<button type="submit" class="button" data-i18n="coSubmit">Megrendelés elküldése</button>
+<p class="checkout-status" data-checkout-status role="status" aria-live="polite"></p>
+</form>
+</div>
+<div class="checkout-thanks" data-checkout-thanks hidden>
+<h2 data-i18n="coThanksTitle">Köszönjük a rendelést!</h2>
+<p data-i18n="coThanksBody">Hamarosan e-mailben jelentkezünk a részletekkel.</p>
+<p><a class="button" href="index.html" data-i18n="ft_footerBack">Vissza a főoldalra</a></p>
+</div>
+</main>
+<footer class="mera-footer" id="kapcsolat"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="./">MERA</a><p data-i18n="ft_footerTag">A legszebb kezdetekhez.</p><p data-i18n="ft_footerIntro">Személyes részletek, amelyekből emlék lesz.</p><a href="tudnivalok.html#kapcsolat" data-i18n="ft_contact">Kapcsolat</a><a class="footer-email" href="mailto:hello@merahome.hu">hello@merahome.hu</a></div><div class="footer-column"><h2 data-i18n="ft_footerOrder">Rendelés és átvétel</h2><ul><li><a href="tudnivalok.html#rendeles-menete" data-i18n="ft_process">Rendelés menete</a></li><li><a href="tudnivalok.html#szallitas" data-i18n="ft_shipping">Szállítás</a></li><li><a href="tudnivalok.html#fizetes" data-i18n="ft_payment">Fizetés</a></li><li><a href="tudnivalok.html#szemelyre-szabott-termekek" data-i18n="ft_personal">Személyre szabott termékek</a></li></ul></div><div class="footer-column"><h2 data-i18n="ft_footerHelp">Jó tudni</h2><ul><li><a href="tudnivalok.html#gyik" data-i18n="ft_faq">GYIK</a></li><li><a href="tudnivalok.html#anyagok" data-i18n="ft_materials">Anyagok</a></li><li><a href="tudnivalok.html#biztonsag" data-i18n="ft_safety">Biztonság</a></li></ul></div><div class="footer-column"><h2 data-i18n="ft_footerLegal">Jogi tájékoztatók</h2><ul><li><a href="tudnivalok.html#aszf" data-i18n="ft_terms">ÁSZF</a></li><li><a href="tudnivalok.html#adatvedelem" data-i18n="ft_privacy">Adatvédelem</a></li></ul></div></div><div class="footer-bottom"><p data-i18n="copyright">© 2026 MERA. Minden jog fenntartva.</p><a href="./" data-i18n="ft_footerBack">Vissza a főoldalra</a></div></footer>
+</body></html>

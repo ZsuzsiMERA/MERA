@@ -5,8 +5,8 @@
 //
 // The basket panel only exists on the shop page. On the home page there are
 // featured product cards but no panel, so the panel elements are optional: items
-// can still be added and the header count still updates; the basket itself is
-// viewed on the shop page.
+// can still be added and the header count still updates. Checkout happens on its
+// own page (rendeles.html) — the "Proceed to order" button is a plain link.
 function initShop() {
   const productCards = [...document.querySelectorAll('.shop-product')];
   if (!productCards.length) return;
@@ -273,12 +273,45 @@ function initShop() {
     updateBasket();
   });
 
-  basketClear?.addEventListener('click', () => {
-    basket.clear();
-    saveBasket();
-    updateBasket();
-    if (basketStatus) basketStatus.textContent = translation('basketCleared');
-  });
+  // Empty-basket confirmation: the clear button swaps for an "Are you sure?" row.
+  if (basketClear) {
+    const confirmWrap = document.createElement('div');
+    confirmWrap.className = 'basket-confirm';
+    confirmWrap.hidden = true;
+    const confirmText = document.createElement('span');
+    confirmText.className = 'basket-confirm-text';
+    const yes = document.createElement('button');
+    yes.type = 'button';
+    yes.className = 'basket-confirm-yes';
+    const no = document.createElement('button');
+    no.type = 'button';
+    no.className = 'basket-confirm-no';
+    confirmWrap.append(confirmText, yes, no);
+    basketClear.after(confirmWrap);
+
+    const labelConfirm = () => {
+      confirmText.textContent = translation('confirmClearTitle');
+      yes.textContent = translation('confirmYes');
+      no.textContent = translation('confirmNo');
+    };
+    const showConfirm = (on) => {
+      if (on) labelConfirm();
+      confirmWrap.hidden = !on;
+      basketClear.hidden = on;
+      if (on) yes.focus();
+    };
+
+    basketClear.addEventListener('click', () => showConfirm(true));
+    no.addEventListener('click', () => { showConfirm(false); basketClear.focus(); });
+    yes.addEventListener('click', () => {
+      basket.clear();
+      saveBasket();
+      updateBasket();
+      showConfirm(false);
+      if (basketStatus) basketStatus.textContent = translation('basketCleared');
+    });
+    document.addEventListener('mera:languagechange', () => { if (!confirmWrap.hidden) labelConfirm(); });
+  }
 
   document.addEventListener('mera:languagechange', updateBasket);
   document.addEventListener('mera:currencychange', updateBasket);
