@@ -241,7 +241,7 @@
       render();
       status.textContent = `${words().messages[index]} ${words().progress}: ${found.size}/5`;
       open(index, found.size === 5 && !solved, isNew && found.size === 5);
-      if (isNew) celebrateDiscovery();
+      if (isNew) { celebrateDiscovery(); window.MeraChime?.play(); }
     });
     button.addEventListener('animationend', () => button.classList.remove('is-glinting'));
     buttons.push(button);
