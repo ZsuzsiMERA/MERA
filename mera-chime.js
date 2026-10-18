@@ -2,61 +2,76 @@
   'use strict';
   let context;
   let activeVoice;
-  let lastPlayed = -Infinity;
+  let bufferPromise;
+  let pending = false;
+  let requestId = 0;
+  const audioUrl = new URL('assets/mera-original-sparkle.mp3', document.currentScript.src);
   const labels = {
-    hu: { preview: 'Csilingelés kipróbálása' },
-    en: { preview: 'Preview chime' },
-    de: { preview: 'Klang anhören' }
+    hu: { preview: 'Csilingelés kipróbálása', source: 'Hangforrás' },
+    en: { preview: 'Preview chime', source: 'Sound credit' },
+    de: { preview: 'Klang anhören', source: 'Klangquelle' }
   };
   const controls = [];
   function renderControls() {
     const text = labels[document.documentElement.lang] || labels.hu;
     controls.forEach(preview => { preview.textContent = text.preview; });
+    const credit = document.querySelector('.mera-chime-source');
+    if (credit) credit.textContent = text.source;
   }
   function silence() {
+    requestId++;
+    pending = false;
     if (!context || !activeVoice) return;
+    const voice = activeVoice;
+    activeVoice = null;
     const now = context.currentTime;
-    activeVoice.gain.cancelScheduledValues(now);
-    activeVoice.gain.setTargetAtTime(0, now, 0.015);
+    voice.gain.gain.cancelScheduledValues(now);
+    voice.gain.gain.setTargetAtTime(0, now, 0.015);
+    voice.source.stop(now + 0.08);
+  }
+  function loadBuffer() {
+    if (!bufferPromise) {
+      bufferPromise = fetch(audioUrl).then(response => {
+        if (!response.ok) throw new Error('Chime could not be loaded');
+        return response.arrayBuffer();
+      }).then(data => context.decodeAudioData(data)).catch(error => {
+        bufferPromise = null;
+        throw error;
+      });
+    }
+    return bufferPromise;
   }
   async function play() {
-    if (performance.now() - lastPlayed < 1800) return;
-    lastPlayed = performance.now();
+    if (document.hidden || pending || activeVoice) return;
+    const id = ++requestId;
+    pending = true;
     try {
       const AudioContext = window.AudioContext || window.webkitAudioContext;
       if (!AudioContext) return;
       context ||= new AudioContext();
       // Called only from an explicit click/keyboard activation, never on page load.
-      if (context.state === 'suspended') await context.resume();
-      if (document.hidden || context.state !== 'running') return;
-      silence();
-      const voice = context.createGain();
+      const resumed = context.state === 'suspended' ? context.resume() : Promise.resolve();
+      const [buffer] = await Promise.all([loadBuffer(), resumed]);
+      if (id !== requestId || document.hidden || context.state !== 'running') return;
+      const source = context.createBufferSource();
+      const gain = context.createGain();
+      const voice = { source, gain };
+      source.buffer = buffer;
+      source.playbackRate.value = 1;
+      gain.gain.value = 0.35;
+      source.connect(gain);
+      gain.connect(context.destination);
+      source.onended = () => {
+        source.disconnect();
+        gain.disconnect();
+        if (activeVoice === voice) activeVoice = null;
+      };
       activeVoice = voice;
-      voice.gain.value = 0.22;
-      voice.connect(context.destination);
-      const start = context.currentTime + 0.015;
-      // A soft rising bell motif; quiet overtones add a glass-like shimmer.
-      [1174.66, 1567.98, 1760, 2349.32].forEach((frequency, index) => {
-        const at = start + index * 0.105;
-        [1, 2.76].forEach((ratio, partial) => {
-          const oscillator = context.createOscillator();
-          const envelope = context.createGain();
-          oscillator.type = 'sine';
-          oscillator.frequency.value = frequency * ratio;
-          const peak = (partial ? 0.025 : 0.14) * (1 - index * 0.1);
-          envelope.gain.setValueAtTime(0, at);
-          envelope.gain.linearRampToValueAtTime(peak, at + 0.009);
-          envelope.gain.exponentialRampToValueAtTime(0.0001, at + (partial ? 0.48 : 1.15));
-          oscillator.connect(envelope);
-          envelope.connect(voice);
-          oscillator.start(at);
-          oscillator.stop(at + 1.2);
-          oscillator.onended = () => { oscillator.disconnect(); envelope.disconnect(); };
-        });
-      });
-      setTimeout(() => { voice.disconnect(); if (activeVoice === voice) activeVoice = null; }, 1800);
+      source.start();
     } catch {
       // Audio support or device failure must never interrupt the key game.
+    } finally {
+      if (id === requestId) pending = false;
     }
   }
   window.MeraChime = Object.freeze({ play });
