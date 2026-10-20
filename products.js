@@ -10,14 +10,9 @@
   if (!container) return;
   const mode = container.dataset.shopMode === 'featured' ? 'featured' : 'all';
 
-  const CATEGORY_LABELS = {
-    personalised: { hu: 'Névre szóló', en: 'Personalised', de: 'Personalisiert' },
-    textile:      { hu: 'Textil', en: 'Textiles', de: 'Textilien' },
-    decor:        { hu: 'Dekoráció', en: 'Decor', de: 'Deko' },
-    lighting:     { hu: 'Világítás', en: 'Lighting', de: 'Beleuchtung' },
-    keepsake:     { hu: 'Emlék', en: 'Keepsakes', de: 'Erinnerungen' },
-    storage:      { hu: 'Tárolás', en: 'Storage', de: 'Aufbewahrung' }
-  };
+  // Category labels and the product page paths are shared with the product
+  // pages (product-format.js).
+  const { CATEGORY_LABELS, pagePath } = window.MeraProducts;
   const UI = {
     all:    { hu: 'Mind', en: 'All', de: 'Alle' },
     search: { hu: 'Keresés a termékek között…', en: 'Search products…', de: 'Produkte suchen…' },
@@ -67,17 +62,26 @@
     art.dataset.priceEur = p.price.eur;
     art.dataset.category = p.category || '';
 
+    const href = pagePath(p);
+    const media = document.createElement('a');
+    media.className = 'shop-product-media';
+    media.href = href;
+    media.tabIndex = -1; // the name link below is the keyboard stop
     const img = document.createElement('img');
     img.src = p.image || '';
     img.alt = t(p.name);
     img.width = 600; img.height = 450; img.loading = 'lazy';
+    media.append(img);
 
     const body = document.createElement('div');
     body.className = 'shop-product-body';
 
     const name = document.createElement('h3');
-    name.setAttribute('data-product-name', '');
-    name.textContent = t(p.name);
+    const nameLink = document.createElement('a');
+    nameLink.href = href;
+    nameLink.setAttribute('data-product-name', '');
+    nameLink.textContent = t(p.name);
+    name.append(nameLink);
 
     const desc = document.createElement('p');
     desc.textContent = t(p.description);
@@ -97,8 +101,8 @@
     add.textContent = t(UI.add);
 
     body.append(name, desc, price, add);
-    art.append(img, body);
-    cards.push({ el: art, product: p, img, nameEl: name, descEl: desc, priceLabelEl: priceLabel, addBtn: add });
+    art.append(media, body);
+    cards.push({ el: art, product: p, img, nameEl: nameLink, descEl: desc, priceLabelEl: priceLabel, addBtn: add });
     return art;
   }
 

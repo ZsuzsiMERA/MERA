@@ -27,7 +27,7 @@
 .basket-checkout-note{margin:8px 0 0;color:#716457;font-size:12px}
 .shop-products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
 .shop-product{display:flex;min-width:0;flex-direction:column;overflow:hidden;border:1px solid var(--line);background:#fff}
-.shop-product>img{display:block;width:100%;aspect-ratio:1;object-fit:cover;background:var(--sand)}
+.shop-product-media{display:block;background:var(--sand)}.shop-product-media img,.shop-product>img{display:block;width:100%;aspect-ratio:1;object-fit:cover;background:var(--sand)}
 .shop-product-body{display:flex;flex:1;flex-direction:column;gap:9px;padding:17px}
 .shop-product h3{margin:0;font-family:Georgia,'Times New Roman',serif;font-size:21px;overflow-wrap:anywhere}
 .shop-product-body>p:not(.shop-price){min-height:3em;margin:0;color:#716457;font-size:13px}
@@ -41,7 +41,7 @@
 [hidden]{display:none!important}
 @media(max-width:950px){.shop-products{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.shop-section{padding:0 22px 20px}.shop-heading{display:block}.shop-notice{margin-top:13px}.shop-products{gap:15px}.shop-product-body{padding:13px}.shop-product h3{font-size:18px}}
-@media(max-width:420px){.shop-products{grid-template-columns:1fr}.shop-product{display:grid;grid-template-columns:38% 1fr}.shop-product>img{height:100%;aspect-ratio:auto;object-fit:cover}.shop-product-body{padding:14px}.shop-product-body>p:not(.shop-price){min-height:0}.basket-item{align-items:flex-start;flex-direction:column;gap:9px}.basket-item-controls{width:100%}}
+@media(max-width:420px){.shop-products{grid-template-columns:1fr}.shop-product{display:grid;grid-template-columns:38% 1fr}.shop-product-media img,.shop-product>img{height:100%;aspect-ratio:auto;object-fit:cover}.shop-product-body{padding:14px}.shop-product-body>p:not(.shop-price){min-height:0}.basket-item{align-items:flex-start;flex-direction:column;gap:9px}.basket-item-controls{width:100%}}
 .shop-lead{margin:8px 0 0;color:#716457;font-size:14px}
 .shop-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin-bottom:22px}
 .shop-filters{display:flex;flex-wrap:wrap;gap:8px}
@@ -92,3 +92,6 @@ main.checkout{padding-top:30px}
 .checkout-back{display:inline-block;color:#716457;font-size:14px;text-decoration:none}
 .checkout-back:hover{text-decoration:underline}
 .checkout-empty{max-width:460px}
+.shop-product h3 a{color:inherit;text-decoration:none}
+.shop-product h3 a:hover{text-decoration:underline}
+.shop-product h3 a:focus-visible{outline:3px solid #805b35;outline-offset:3px}

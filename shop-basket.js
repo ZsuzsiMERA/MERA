@@ -7,8 +7,17 @@
 // featured product cards but no panel, so the panel elements are optional: items
 // can still be added and the header count still updates. Checkout happens on its
 // own page (rendeles.html) — the "Proceed to order" button is a plain link.
+//
+// A product page (termek/<slug>.html) is a single "card" (.product-detail) with a
+// quantity box ([data-basket-qty]); its large gallery image is [data-basket-image].
+const BASKET_CARD_SELECTOR = '.shop-product, .product-detail';
+
+function cardImage(card) {
+  return card.querySelector('[data-basket-image]') || card.querySelector('img');
+}
+
 function initShop() {
-  const productCards = [...document.querySelectorAll('.shop-product')];
+  const productCards = [...document.querySelectorAll(BASKET_CARD_SELECTOR)];
   if (!productCards.length) return;
 
   const basketStorageKey = 'mera-shop-basket';
@@ -108,8 +117,8 @@ function initShop() {
 
       const thumb = document.createElement('img');
       thumb.className = 'basket-item-thumb';
-      const cardImage = card.querySelector('img');
-      thumb.src = cardImage ? cardImage.getAttribute('src') : '';
+      const image = cardImage(card);
+      thumb.src = image ? image.getAttribute('src') : '';
       thumb.alt = '';
       thumb.setAttribute('aria-hidden', 'true');
       thumb.width = 46;
@@ -201,7 +210,7 @@ function initShop() {
   }
 
   function flyToBasket(card) {
-    const source = card.querySelector('img');
+    const source = cardImage(card);
     const target = document.querySelector('[data-basket-count]') || document.querySelector('[data-basket-link]');
     if (!source || !target) return;
     const from = source.getBoundingClientRect();
@@ -238,9 +247,15 @@ function initShop() {
 
   productCards.forEach((card) => {
     const addButton = card.querySelector('[data-basket-add]');
+    const quantityInput = card.querySelector('[data-basket-qty]');
     addButton.addEventListener('click', () => {
       const id = card.dataset.productId;
-      const quantity = (basket.get(id) || 0) + 1;
+      let adding = 1;
+      if (quantityInput) {
+        adding = Math.min(99, Math.max(1, Number.parseInt(quantityInput.value, 10) || 1));
+        quantityInput.value = String(adding);
+      }
+      const quantity = (basket.get(id) || 0) + adding;
       basket.set(id, quantity);
       saveBasket();
       updateBasket();
@@ -320,5 +335,5 @@ function initShop() {
   updateBasket();
 }
 
-if (document.querySelector('.shop-product')) initShop();
+if (document.querySelector(BASKET_CARD_SELECTOR)) initShop();
 else document.addEventListener('mera:productsrendered', initShop, { once: true });
