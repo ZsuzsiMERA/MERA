@@ -9,6 +9,18 @@
 .mera-hidden-key:hover,.mera-hidden-key.is-found{color:#80602e}
 .mera-hidden-key:focus-visible,.mera-key-progress:focus-visible,.mera-key-close:focus-visible{outline:2px solid #80602e;outline-offset:4px}
 .mera-hidden-key.is-glinting{animation:mera-glint 1s ease-out}
+/* Keys still waiting to be found fade gently in and out, each on its own rhythm. */
+.mera-hidden-key:not(.is-found){animation:mera-key-breathe 4.2s ease-in-out infinite}
+.mera-hidden-key-2:not(.is-found){animation-duration:5s;animation-delay:-1.3s}
+.mera-hidden-key-3:not(.is-found){animation-duration:4.6s;animation-delay:-2.6s}
+.mera-hidden-key-4:not(.is-found){animation-duration:5.4s;animation-delay:-.7s}
+.mera-hidden-key-5:not(.is-found){animation-duration:4.8s;animation-delay:-3.4s}
+.mera-hidden-key:not(.is-found):hover,.mera-hidden-key:not(.is-found):focus-visible{animation:none;opacity:1}
+@keyframes mera-key-breathe{0%,100%{opacity:1}50%{opacity:.3}}
+@media(prefers-reduced-motion:reduce){.mera-hidden-key:not(.is-found){animation:none}}
+/* A found key glints, then fades away for good (it stays in the key counter). */
+.mera-hidden-key.is-found{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .5s ease .9s,visibility 0s linear 1.4s}
+@media(prefers-reduced-motion:reduce){.mera-hidden-key.is-found{transition:none}}
 .mera-key-progress{display:flex;align-items:center;gap:8px;width:max-content;margin:24px auto 0;padding:7px 12px;border:1px solid #d8c7b5;border-radius:30px;background:transparent;color:#716047;font:12px Georgia,serif;letter-spacing:.12em;cursor:pointer;min-height:44px}
 .mera-key-progress .mera-key-art{width:20px;height:20px}
 .mera-key-dialog{box-sizing:border-box;width:min(520px,calc(100% - 32px));max-height:calc(100dvh - 32px);padding:58px 40px 38px;border:1px solid #c9ae7b;background:#faf6ef;color:#403c35;text-align:center;box-shadow:0 24px 100px #211b1833;overflow:auto}

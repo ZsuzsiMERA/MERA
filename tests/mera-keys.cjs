@@ -44,12 +44,18 @@ const server = http.createServer((req, res) => {
     assert.equal(await dialog.isVisible(), true);
     assert.equal(await page.locator('.mera-key-inspect').evaluate(el => el === document.activeElement), true);
     await page.keyboard.press('Escape');
-    assert.equal(await keys.nth(0).evaluate(el => el === document.activeElement), true);
+    // The found key fades away, so focus goes to the key counter.
+    assert.equal(await page.locator('.mera-key-progress').evaluate(el => el === document.activeElement), true);
+    await keys.nth(0).waitFor({ state: 'hidden' });
+    assert.equal(await keys.nth(1).isVisible(), true);
     await page.keyboard.press('Enter');
     assert.equal(await count(), '1/5');
     await close();
     await page.reload();
     assert.equal(await count(), '1/5');
+    assert.equal(await keys.nth(0).isVisible(), false, 'found keys stay hidden after a reload');
+    assert.equal(await keys.nth(0).evaluate(el => getComputedStyle(el).visibility), 'hidden');
+    assert.equal(await keys.nth(1).evaluate(el => getComputedStyle(el).animationName), 'mera-key-breathe', 'unfound keys fade in and out');
     for (let i = 1; i < 5; i++) { await keys.nth(i).click(); if (i < 4) await close(); }
     assert.equal(await dialog.locator('.mera-key-emblem .mera-key-art').getAttribute('src'), 'assets/keys/sofia-a.webp');
     assert.equal(await count(), '5/5');
@@ -135,6 +141,9 @@ const server = http.createServer((req, res) => {
     assert.equal(await page.locator('.mera-gift').isVisible(), true);
     assert.equal(await page.locator('.mera-gift').evaluate(el => getComputedStyle(el).animationName), 'none');
     await close();
+    assert.equal(await keys.nth(0).isVisible(), false, 'all found keys are hidden');
+    await page.evaluate(() => localStorage.removeItem('mera-secret-keys-v1'));
+    await page.reload();
     await keys.nth(0).scrollIntoViewIfNeeded();
     await page.screenshot({ path: path.join(screenshots, 'mera-mobile-key.png') });
     const blocked = await browser.newContext({ locale: 'hu-HU' });

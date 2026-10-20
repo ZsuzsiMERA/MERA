@@ -201,6 +201,9 @@
     dialog.classList.remove('is-unlocking');
     dialog.classList.toggle('is-discovering', animate);
     if (!dialog.open) {
+      // A key fades away once found, so focus returns to the key counter instead.
+      // Move it there before opening: the browser restores focus to whatever had it.
+      if (document.activeElement?.classList.contains('is-found')) progress.focus({ preventScroll: true });
       returnFocus = document.activeElement;
       dialog.showModal();
       dialog.querySelector('.mera-key-close').focus();
@@ -228,6 +231,8 @@
     const button = document.createElement('button');
     button.type = 'button';
     button.className = `mera-hidden-key mera-hidden-key-${index + 1}`;
+    // Found keys are hidden; mark them before they're shown so they don't fade out on load.
+    if (found.has(ids[index])) button.classList.add('is-found');
     button.innerHTML = keyArts[index];
     button.addEventListener('click', () => {
       const isNew = !found.has(ids[index]);
