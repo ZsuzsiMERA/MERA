@@ -10,14 +10,14 @@ fs.mkdirSync(screenshots, { recursive: true });
 const server = http.createServer((req, res) => {
   const file = path.resolve(root, '.' + (req.url === '/' ? '/index.html' : req.url.split('?')[0]));
   if (!file.startsWith(root + path.sep)) { res.writeHead(403).end(); return; }
-  const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.png': 'image/png' };
+  const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.json': 'application/json' };
   fs.readFile(file, (error, data) => { res.writeHead(error ? 404 : 200, { 'Content-Type': types[path.extname(file)] || 'application/octet-stream' }); res.end(error ? '' : data); });
 });
 (async () => {
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   const browser = await chromium.launch({ headless: true, ...(process.env.MERA_BROWSER_CHANNEL ? { channel: process.env.MERA_BROWSER_CHANNEL } : {}) });
   try {
-    const context = await browser.newContext();
+    const context = await browser.newContext({ locale: 'hu-HU' }); // the site follows the browser language
     const page = await context.newPage();
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
@@ -28,7 +28,10 @@ const server = http.createServer((req, res) => {
     const count = () => page.locator('.mera-key-progress span').textContent();
     const close = () => page.locator('.mera-key-close').click();
     assert.equal(await keys.count(), 5);
+    // Key art is lazy-loaded, so bring each key on screen before checking it loaded.
+    for (let i = 0; i < 5; i += 1) await keys.nth(i).scrollIntoViewIfNeeded();
     await page.waitForFunction(() => [...document.querySelectorAll('.mera-hidden-key img')].every(img => img.complete && img.naturalWidth > 0));
+    await page.evaluate(() => window.scrollTo(0, 0));
     assert.equal(await keys.locator('img').evaluateAll(images => new Set(images.map(img => img.src)).size), 5);
     assert.equal(await count(), '0/5');
     await keys.nth(0).click();
@@ -36,7 +39,7 @@ const server = http.createServer((req, res) => {
     assert.equal(await page.locator('.mera-secret-form').isVisible(), false);
     await page.locator('.mera-key-inspect').click();
     assert.equal(await page.locator('.mera-detail-dialog').isVisible(), true);
-    assert.equal(await page.locator('.mera-detail-stage img').getAttribute('src'), 'assets/keys/sofia-sz.png');
+    assert.equal(await page.locator('.mera-detail-stage img').getAttribute('src'), 'assets/keys/sofia-sz.webp');
     await page.keyboard.press('Escape');
     assert.equal(await dialog.isVisible(), true);
     assert.equal(await page.locator('.mera-key-inspect').evaluate(el => el === document.activeElement), true);
@@ -48,7 +51,7 @@ const server = http.createServer((req, res) => {
     await page.reload();
     assert.equal(await count(), '1/5');
     for (let i = 1; i < 5; i++) { await keys.nth(i).click(); if (i < 4) await close(); }
-    assert.equal(await dialog.locator('.mera-key-emblem .mera-key-art').getAttribute('src'), 'assets/keys/sofia-a.png');
+    assert.equal(await dialog.locator('.mera-key-emblem .mera-key-art').getAttribute('src'), 'assets/keys/sofia-a.webp');
     assert.equal(await count(), '5/5');
     assert.equal(await dialog.evaluate(el => el.classList.contains('is-discovering')), true);
     assert.equal(await dialog.evaluate(el => el.classList.contains('is-unlocking')), false);
@@ -134,7 +137,7 @@ const server = http.createServer((req, res) => {
     await close();
     await keys.nth(0).scrollIntoViewIfNeeded();
     await page.screenshot({ path: path.join(screenshots, 'mera-mobile-key.png') });
-    const blocked = await browser.newContext();
+    const blocked = await browser.newContext({ locale: 'hu-HU' });
     await blocked.addInitScript(() => { Storage.prototype.getItem = Storage.prototype.setItem = () => { throw new DOMException('Blocked', 'SecurityError'); }; });
     const noStorage = await blocked.newPage();
     await noStorage.goto(url);
