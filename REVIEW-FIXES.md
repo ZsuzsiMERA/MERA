@@ -4,8 +4,8 @@ The site has had a round of improvements. This file lists **what's already done*
 **what still needs you (Mera)** — mostly real content and a couple of one-time settings.
 
 **Working with the site:** open the MERA folder in VS Code, edit, preview with Live
-Server, then in GitHub Desktop **Commit → Push**. Once hosting is on Cloudflare Pages,
-each push republishes automatically. For anything code-related you can paste the Codex
+Server, then in GitHub Desktop **Commit → Push**. Each push republishes
+https://merahome.hu automatically (Cloudflare Pages). For anything code-related you can paste the Codex
 prompts below, or ask Dominic.
 
 ---
@@ -51,17 +51,19 @@ on placeholder or AI-written legal text.
 
 ---
 
-## Hosting: move to Cloudflare Pages (free) and turn off GitHub Pages
+## Hosting: Cloudflare Pages (done)
 
-Cloudflare Pages is free, deploys on every push, has no bandwidth limit, lets you keep the
-`DEMOS` folder and docs in the repo without publishing them, and serves clean URLs
-(`/bolt`, not `/bolt.html`). Dominic can do this with you.
+The site is live at **https://merahome.hu** (and `www.merahome.hu`, which redirects there),
+served by Cloudflare Pages from this repository. Every push to `main` republishes it; the
+`DEMOS` folder is removed during the build so it never goes public. Mail to any
+`@merahome.hu` address (including `hello@merahome.hu`) is set up to forward to your Gmail
+through Cloudflare Email Routing.
 
-1. Sign in at https://dash.cloudflare.com → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**, and authorise the MERA repository.
-2. Build settings: **Framework preset** None, **Build command** `rm -rf DEMOS`, **Build output directory** `/`.
-3. **Save and Deploy** → you get a `*.pages.dev` address to check.
-4. Add the domain: Pages project → **Custom domains** → `merahome.hu` (and `www`) once the domain's DNS is on Cloudflare. Then update the `canonical`/`og:url` links to `https://merahome.hu/`.
-5. On GitHub: repo **Settings → Pages → Source: None** to switch off the old site.
+Two things left for you:
+1. Click the **verification link** in the email Cloudflare sent to your Gmail, then tell
+   Dominic so he can switch the forwarding on.
+2. On GitHub, repo **Settings → Pages → Source: None**, to switch off the old
+   `zsuzsimera.github.io/MERA` copy.
 
 ---
 
