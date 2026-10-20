@@ -31,6 +31,7 @@ These are the requirements this system was built to, in the order they were give
 | `products.json` | The catalogue — the one file to edit to change products (see below). |
 | `products.js` | Reads `products.json` and builds the product cards (each links to its product page). On the shop page it also builds the search box and the category + price filters. |
 | `product-format.js` | Shared labels and formatting (categories, dimensions, availability, prices) used by the cards, the product pages and the page builder. |
+| `tools/make-share-images.cjs` | Makes link-preview JPGs for products that only have SVG pictures (see Product pages). |
 | `tools/build-products.mjs` | Builds the product pages (`termek/<slug>.html`) and `sitemap.xml` from `products.json`. Runs automatically on every Cloudflare deploy. |
 | `termek/*.html` | The generated product pages — **don't edit these by hand**; edit `products.json` and rebuild. |
 | `product-page.js` / `product-page.css` | The product page's image gallery, language switching and layout. |
@@ -121,9 +122,12 @@ Each product has its own page at `merahome.hu/termek/<slug>`, built from `produc
   switch changes all the product text in place.
 - **SEO** — each page has its own title (`Névtábla | MERA`), meta description, canonical
   address, social-preview tags and Google *Product* structured data (price, availability,
-  dimensions, images) plus breadcrumbs, and is listed in `sitemap.xml`. Social previews use
-  the site's share image unless the product's main image is a JPG/PNG/WebP photo (social
-  sites can't show SVGs), so real photos will appear in shares automatically.
+  dimensions, images) plus breadcrumbs, and is listed in `sitemap.xml`.
+- **Link previews** (Telegram, Facebook, WhatsApp…) show the product's first JPG/PNG/WebP
+  photo. These apps can't show SVGs, so for the placeholder illustrations
+  `tools/make-share-images.cjs` renders a 1200×630 JPG into `assets/shop/share/` (run it,
+  then the page builder, after changing a product's SVG; it needs Playwright). Once real
+  photos are in, they're used automatically.
 
 The pages are generated: `termek/*.html` and `sitemap.xml` are overwritten on every build,
 so change `products.json` (content) or `tools/build-products.mjs` (layout) instead. The

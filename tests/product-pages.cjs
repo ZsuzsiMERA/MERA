@@ -35,6 +35,10 @@ const server = http.createServer((req, res) => {
       assert.equal(product.offers.price, String(p.price.huf));
       assert.equal(product.url, `https://merahome.hu/termek/${p.slug}`);
       assert.ok(html.includes(`<link rel="canonical" href="https://merahome.hu/termek/${p.slug}">`));
+      const ogImage = html.match(/<meta property="og:image" content="https:\/\/merahome\.hu\/([^"]+)">/)[1];
+      assert.match(ogImage, /\.(jpe?g|png|webp)$/, `${p.slug} previews with a raster image`);
+      assert.notEqual(ogImage, 'assets/og-image.jpg', `${p.slug} previews with its own image`);
+      assert.ok(fs.existsSync(path.join(root, ogImage)), `${ogImage} exists`);
     }
     const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
     for (const p of products) assert.ok(sitemap.includes(`https://merahome.hu/termek/${p.slug}<`), `sitemap lists ${p.slug}`);

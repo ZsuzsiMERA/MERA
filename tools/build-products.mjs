@@ -80,6 +80,17 @@ const headAssets = rebase(
   + '<link rel="stylesheet" href="../product-page.css"><script src="../product-page.js" defer></script>';
 if (!/product-format\.js[\s\S]*shop-basket\.js/.test(headAssets)) throw new Error('bolt.html must load product-format.js before shop-basket.js');
 
+// Link previews (og:image): social apps can't show SVGs, so use the product's
+// first photo (JPG/PNG/WebP); else the share image made for it by
+// tools/make-share-images.cjs; else the site's general share image.
+function shareImage(p) {
+  const photo = images(p).find((img) => /\.(jpe?g|png|webp)$/i.test(img.src));
+  if (photo) return { src: photo.src, alt: tx(photo.alt) };
+  const made = `assets/shop/share/${p.id}.jpg`;
+  if (fs.existsSync(path.join(root, made))) return { src: made, alt: tx(p.name), width: 1200, height: 630 };
+  return { src: DEFAULT_OG_IMAGE, alt: 'MERA', width: 1200, height: 630 };
+}
+
 function images(p) {
   return [{ src: p.image, alt: p.name }, ...(p.gallery || [])].filter((img) => img && img.src);
 }
@@ -162,7 +173,11 @@ function page(p) {
   const name = tx(p.name);
   const title = `${name} | MERA`;
   const metaDescription = truncate([tx(p.description), P.paragraphs(tx(p.details))[0]].filter(Boolean).join(' '), 158);
-  const ogImage = abs(/\.(jpe?g|png|webp)$/i.test(p.image || '') ? p.image : DEFAULT_OG_IMAGE);
+  const share = shareImage(p);
+  const ogImage = abs(share.src);
+  const ogImageTags = `<meta property="og:image" content="${ogImage}">`
+    + (share.width ? `\n<meta property="og:image:width" content="${share.width}">\n<meta property="og:image:height" content="${share.height}">` : '')
+    + `\n<meta property="og:image:alt" content="${esc(share.alt)}">`;
   const avail = P.availability(p);
   const rel = related(p);
   const pageData = {
@@ -198,7 +213,7 @@ function page(p) {
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(metaDescription)}">
 <meta property="og:url" content="${pageUrl(p)}">
-<meta property="og:image" content="${ogImage}">
+${ogImageTags}
 <meta property="product:price:amount" content="${esc(p.price.huf)}">
 <meta property="product:price:currency" content="HUF">
 <meta name="twitter:card" content="summary_large_image">
