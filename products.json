@@ -1,9 +1,34 @@
 [
   {
     "id": "nameplate",
+    "slug": "nevtabla",
     "category": "personalised",
     "featured": true,
+    "availability": "made_to_order",
+    "leadTime": {
+      "hu": "Elkészítési idő: 5–7 munkanap",
+      "en": "Ready in 5–7 working days",
+      "de": "Fertig in 5–7 Werktagen"
+    },
     "image": "assets/shop/nameplate.svg",
+    "gallery": [
+      {
+        "src": "assets/shop/nameplate-detail.svg",
+        "alt": {
+          "hu": "Névtábla – közelről",
+          "en": "Name plaque – close-up",
+          "de": "Namensschild – Nahaufnahme"
+        }
+      },
+      {
+        "src": "assets/shop/nameplate-room.svg",
+        "alt": {
+          "hu": "Névtábla – a babaszobában",
+          "en": "Name plaque – in the nursery",
+          "de": "Namensschild – im Kinderzimmer"
+        }
+      }
+    ],
     "price": {
       "huf": 6900,
       "eur": 17
@@ -17,13 +42,75 @@
       "hu": "Személyre szabható névtábla a babaszobába.",
       "en": "A personalised name plaque for the nursery.",
       "de": "Ein personalisiertes Namensschild fürs Kinderzimmer."
+    },
+    "details": {
+      "hu": "A névtábla a babaszoba első személyes darabja: a gyermek neve kerül rá, kézzel festett betűkkel, gyerekbarát festékkel.\n\nAz ajtóra, a kiságy fölé vagy a polcra is tehető, és évek múlva is kedves emlék marad. A névről és a színekről a rendelés után egyeztetünk veled.",
+      "en": "The name plaque is the nursery's first personal piece: your child's name, hand-painted with child-safe paint.\n\nHang it on the door, above the cot or stand it on a shelf – it stays a treasured keepsake for years. We agree the name and colours with you after you order.",
+      "de": "Das Namensschild ist das erste persönliche Stück im Kinderzimmer: der Name deines Kindes, von Hand mit kinderfreundlicher Farbe gemalt.\n\nEs passt an die Tür, über das Babybett oder ins Regal und bleibt über Jahre eine liebe Erinnerung. Name und Farben stimmen wir nach der Bestellung mit dir ab."
+    },
+    "features": {
+      "hu": [
+        "Legfeljebb 12 betűs névvel",
+        "Kézzel festett, gyerekbarát festékkel",
+        "Akasztóval, falra vagy ajtóra"
+      ],
+      "en": [
+        "Name of up to 12 letters",
+        "Hand-painted with child-safe paint",
+        "Comes with a hanger for wall or door"
+      ],
+      "de": [
+        "Name mit bis zu 12 Buchstaben",
+        "Handbemalt mit kinderfreundlicher Farbe",
+        "Mit Aufhänger für Wand oder Tür"
+      ]
+    },
+    "materials": {
+      "hu": "Nyír rétegelt lemez, vízbázisú festék és lakk",
+      "en": "Birch plywood, water-based paint and lacquer",
+      "de": "Birkensperrholz, Farbe und Lack auf Wasserbasis"
+    },
+    "dimensions": {
+      "width": 30,
+      "height": 12,
+      "depth": 1.8,
+      "unit": "cm"
+    },
+    "weight": {
+      "value": 320,
+      "unit": "g"
+    },
+    "care": {
+      "hu": "Száraz vagy enyhén nedves ruhával töröld át. Ne áztasd.",
+      "en": "Wipe with a dry or slightly damp cloth. Do not soak.",
+      "de": "Mit einem trockenen oder leicht feuchten Tuch abwischen. Nicht einweichen."
     }
   },
   {
     "id": "cushion",
+    "slug": "lenparna",
     "category": "textile",
     "featured": false,
+    "availability": "in_stock",
     "image": "assets/shop/cushion.svg",
+    "gallery": [
+      {
+        "src": "assets/shop/cushion-detail.svg",
+        "alt": {
+          "hu": "Lenpárna – közelről",
+          "en": "Linen cushion – close-up",
+          "de": "Leinenkissen – Nahaufnahme"
+        }
+      },
+      {
+        "src": "assets/shop/cushion-room.svg",
+        "alt": {
+          "hu": "Lenpárna – a babaszobában",
+          "en": "Linen cushion – in the nursery",
+          "de": "Leinenkissen – im Kinderzimmer"
+        }
+      }
+    ],
     "price": {
       "huf": 12500,
       "eur": 31
@@ -37,13 +124,74 @@
       "hu": "45 × 45 cm-es, mosott lenvászon párna.",
       "en": "45 × 45 cm cushion in washed linen.",
       "de": "45 × 45 cm großes Kissen aus gewaschenem Leinen."
+    },
+    "details": {
+      "hu": "Puha, mosott lenvászon párna, amely minden mosással csak szebb lesz. A természetes len jól szellőzik, nyáron hűvös, télen kellemes.\n\nA huzat cipzárral levehető és mosható, így a babaszobában is gondtalanul használható.",
+      "en": "A soft cushion in washed linen that only gets nicer with every wash. Natural linen breathes well – cool in summer, cosy in winter.\n\nThe cover zips off and is machine-washable, so it's easy to live with in a nursery.",
+      "de": "Ein weiches Kissen aus gewaschenem Leinen, das mit jeder Wäsche schöner wird. Naturleinen ist atmungsaktiv – im Sommer kühl, im Winter gemütlich.\n\nDer Bezug lässt sich per Reißverschluss abnehmen und waschen – ideal fürs Kinderzimmer."
+    },
+    "features": {
+      "hu": [
+        "Levehető, cipzáras huzat",
+        "Hipoallergén töltet",
+        "Natúr, homok és zsályazöld színben"
+      ],
+      "en": [
+        "Removable zipped cover",
+        "Hypoallergenic filling",
+        "In natural, sand and sage green"
+      ],
+      "de": [
+        "Abnehmbarer Bezug mit Reißverschluss",
+        "Hypoallergene Füllung",
+        "In Natur, Sand und Salbeigrün"
+      ]
+    },
+    "materials": {
+      "hu": "Huzat: 100% mosott len. Töltet: hipoallergén poliészter",
+      "en": "Cover: 100% washed linen. Filling: hypoallergenic polyester",
+      "de": "Bezug: 100 % gewaschenes Leinen. Füllung: hypoallergenes Polyester"
+    },
+    "dimensions": {
+      "width": 45,
+      "height": 45,
+      "unit": "cm"
+    },
+    "weight": {
+      "value": 450,
+      "unit": "g"
+    },
+    "care": {
+      "hu": "A huzat 30 °C-on, kímélő programon mosható. Ne szárítsd gépben.",
+      "en": "Wash the cover at 30 °C on a gentle cycle. Do not tumble dry.",
+      "de": "Bezug bei 30 °C im Schonwaschgang waschen. Nicht im Trockner trocknen."
     }
   },
   {
     "id": "vase",
+    "slug": "keramiavaza",
     "category": "decor",
     "featured": false,
+    "availability": "in_stock",
     "image": "assets/shop/vase.svg",
+    "gallery": [
+      {
+        "src": "assets/shop/vase-detail.svg",
+        "alt": {
+          "hu": "Kerámiaváza – közelről",
+          "en": "Ceramic vase – close-up",
+          "de": "Keramikvase – Nahaufnahme"
+        }
+      },
+      {
+        "src": "assets/shop/vase-room.svg",
+        "alt": {
+          "hu": "Kerámiaváza – a babaszobában",
+          "en": "Ceramic vase – in the nursery",
+          "de": "Keramikvase – im Kinderzimmer"
+        }
+      }
+    ],
     "price": {
       "huf": 18900,
       "eur": 47
@@ -57,13 +205,79 @@
       "hu": "Kézi korongozással készült, 25 cm-es kőedényváza.",
       "en": "Hand-thrown stoneware vase, 25 cm tall.",
       "de": "Handgedrehte Steinzeugvase, 25 cm hoch."
+    },
+    "details": {
+      "hu": "Kézi korongozással készült kőedényváza matt mázzal. Minden darab egy kicsit más – a korongozás nyomai a váza karakterének részei.\n\nSzáraz virággal vagy önmagában is szép a polcon; a belső máz vízzáró, így friss virághoz is használható.",
+      "en": "A hand-thrown stoneware vase with a matt glaze. Every piece is slightly different – the marks of the wheel are part of its character.\n\nLovely with dried flowers or on its own on a shelf; the glazed interior is watertight, so fresh flowers work too.",
+      "de": "Eine handgedrehte Steinzeugvase mit matter Glasur. Jedes Stück ist etwas anders – die Spuren der Töpferscheibe gehören zu ihrem Charakter.\n\nSchön mit Trockenblumen oder allein im Regal; die glasierte Innenseite ist wasserdicht, also auch für frische Blumen geeignet."
+    },
+    "features": {
+      "hu": [
+        "Kézzel korongozott, egyedi darab",
+        "Vízzáró belső máz",
+        "Dekoráció – gyermek elől elzárva tartandó"
+      ],
+      "en": [
+        "Hand-thrown, each one unique",
+        "Watertight glazed interior",
+        "Decorative – keep out of children's reach"
+      ],
+      "de": [
+        "Handgedreht, jedes Stück ein Unikat",
+        "Wasserdichte glasierte Innenseite",
+        "Deko – außerhalb der Reichweite von Kindern aufbewahren"
+      ]
+    },
+    "materials": {
+      "hu": "Kőedény, matt és fényes máz",
+      "en": "Stoneware with matt and gloss glaze",
+      "de": "Steinzeug mit matter und glänzender Glasur"
+    },
+    "dimensions": {
+      "height": 25,
+      "diameter": 12,
+      "unit": "cm"
+    },
+    "weight": {
+      "value": 900,
+      "unit": "g"
+    },
+    "care": {
+      "hu": "Kézzel mosogasd. Mosogatógépbe nem tehető.",
+      "en": "Hand wash only. Not dishwasher safe.",
+      "de": "Nur Handwäsche. Nicht spülmaschinengeeignet."
     }
   },
   {
     "id": "mobile",
+    "slug": "fa-forgo",
     "category": "decor",
     "featured": true,
+    "availability": "made_to_order",
+    "leadTime": {
+      "hu": "Elkészítési idő: 7–10 munkanap",
+      "en": "Ready in 7–10 working days",
+      "de": "Fertig in 7–10 Werktagen"
+    },
     "image": "assets/shop/mobile.svg",
+    "gallery": [
+      {
+        "src": "assets/shop/mobile-detail.svg",
+        "alt": {
+          "hu": "Fa forgó – közelről",
+          "en": "Wooden mobile – close-up",
+          "de": "Holzmobile – Nahaufnahme"
+        }
+      },
+      {
+        "src": "assets/shop/mobile-room.svg",
+        "alt": {
+          "hu": "Fa forgó – a babaszobában",
+          "en": "Wooden mobile – in the nursery",
+          "de": "Holzmobile – im Kinderzimmer"
+        }
+      }
+    ],
     "price": {
       "huf": 9900,
       "eur": 25
@@ -77,13 +291,74 @@
       "hu": "Kézzel festett fa forgó a kiságy fölé.",
       "en": "A hand-painted wooden mobile for above the cot.",
       "de": "Ein handbemaltes Holzmobile für über das Bettchen."
+    },
+    "details": {
+      "hu": "Kézzel festett fa forgó a kiságy fölé: lassan mozgó formák, amelyeket a baba az első hetektől figyelni tud.\n\nA forgót a baba elérhetőségén kívül, a kiságy fölé akaszd, és vedd le, amikor a baba már fel tud ülni vagy el tudja érni.",
+      "en": "A hand-painted wooden mobile for above the cot: slowly turning shapes a baby can follow from the first weeks.\n\nHang it above the cot, out of your baby's reach, and take it down once your baby can sit up or reach it.",
+      "de": "Ein handbemaltes Holzmobile für über dem Babybett: sanft drehende Formen, denen ein Baby schon in den ersten Wochen folgen kann.\n\nAußerhalb der Reichweite des Babys aufhängen und abnehmen, sobald es sitzen oder danach greifen kann."
+    },
+    "features": {
+      "hu": [
+        "Öt kézzel festett fa elem",
+        "Pamut zsinórral, mennyezeti akasztóval",
+        "Színek egyeztetés szerint"
+      ],
+      "en": [
+        "Five hand-painted wooden shapes",
+        "Cotton cord and ceiling hook included",
+        "Colours agreed with you"
+      ],
+      "de": [
+        "Fünf handbemalte Holzelemente",
+        "Mit Baumwollschnur und Deckenhaken",
+        "Farben nach Absprache"
+      ]
+    },
+    "materials": {
+      "hu": "Bükkfa, pamut zsinór, vízbázisú festék",
+      "en": "Beech wood, cotton cord, water-based paint",
+      "de": "Buchenholz, Baumwollschnur, Farbe auf Wasserbasis"
+    },
+    "dimensions": {
+      "diameter": 40,
+      "height": 55,
+      "unit": "cm"
+    },
+    "weight": {
+      "value": 180,
+      "unit": "g"
+    },
+    "care": {
+      "hu": "Puha, száraz ecsettel vagy ruhával portalanítsd.",
+      "en": "Dust with a soft, dry brush or cloth.",
+      "de": "Mit einem weichen, trockenen Pinsel oder Tuch abstauben."
     }
   },
   {
     "id": "wall-moon",
+    "slug": "falikep-hold-es-csillagok",
     "category": "decor",
     "featured": true,
+    "availability": "in_stock",
     "image": "assets/shop/wall-moon.svg",
+    "gallery": [
+      {
+        "src": "assets/shop/wall-moon-detail.svg",
+        "alt": {
+          "hu": "Falikép – Hold és csillagok – közelről",
+          "en": "Wall art – Moon and stars – close-up",
+          "de": "Wandbild – Mond und Sterne – Nahaufnahme"
+        }
+      },
+      {
+        "src": "assets/shop/wall-moon-room.svg",
+        "alt": {
+          "hu": "Falikép – Hold és csillagok – a babaszobában",
+          "en": "Wall art – Moon and stars – in the nursery",
+          "de": "Wandbild – Mond und Sterne – im Kinderzimmer"
+        }
+      }
+    ],
     "price": {
       "huf": 8500,
       "eur": 21
@@ -97,13 +372,80 @@
       "hu": "Fából kivágott hold és csillagok a falra.",
       "en": "Moon and stars cut from wood for the wall.",
       "de": "Mond und Sterne aus Holz für die Wand."
+    },
+    "details": {
+      "hu": "Lézervágott fa hold és csillagok a babaszoba falára – meleg, natúr dekoráció, amely esti mesékhez is hangulatot ad.\n\nA felrakáshoz minden szükséges rögzítőt mellékelünk; fúrás nélkül is felhelyezhető.",
+      "en": "A laser-cut wooden moon and stars for the nursery wall – warm, natural decor that sets the mood for bedtime stories.\n\nEverything you need to hang it is included; it can go up without drilling.",
+      "de": "Ein lasergeschnittener Holzmond mit Sternen für die Kinderzimmerwand – warme, natürliche Deko für die Gute-Nacht-Geschichte.\n\nAlles zum Aufhängen liegt bei; die Montage geht auch ohne Bohren."
+    },
+    "features": {
+      "hu": [
+        "Egy hold és hat csillag",
+        "Natúr olajjal kezelt felület",
+        "Rögzítőszalaggal, fúrás nélkül"
+      ],
+      "en": [
+        "One moon and six stars",
+        "Natural oil finish",
+        "Mounting strips included, no drilling"
+      ],
+      "de": [
+        "Ein Mond und sechs Sterne",
+        "Mit Naturöl behandelt",
+        "Mit Klebestreifen, ohne Bohren"
+      ]
+    },
+    "materials": {
+      "hu": "Nyír rétegelt lemez, natúr olaj",
+      "en": "Birch plywood, natural oil",
+      "de": "Birkensperrholz, Naturöl"
+    },
+    "dimensions": {
+      "width": 50,
+      "height": 35,
+      "depth": 0.6,
+      "unit": "cm"
+    },
+    "weight": {
+      "value": 400,
+      "unit": "g"
+    },
+    "care": {
+      "hu": "Száraz ruhával portalanítsd.",
+      "en": "Dust with a dry cloth.",
+      "de": "Mit einem trockenen Tuch abstauben."
     }
   },
   {
     "id": "growth-ruler",
+    "slug": "novekedesmero-lec",
     "category": "personalised",
     "featured": false,
+    "availability": "made_to_order",
+    "leadTime": {
+      "hu": "Elkészítési idő: 7–10 munkanap",
+      "en": "Ready in 7–10 working days",
+      "de": "Fertig in 7–10 Werktagen"
+    },
     "image": "assets/shop/growth-ruler.svg",
+    "gallery": [
+      {
+        "src": "assets/shop/growth-ruler-detail.svg",
+        "alt": {
+          "hu": "Növekedésmérő léc – közelről",
+          "en": "Growth ruler – close-up",
+          "de": "Messlatte – Nahaufnahme"
+        }
+      },
+      {
+        "src": "assets/shop/growth-ruler-room.svg",
+        "alt": {
+          "hu": "Növekedésmérő léc – a babaszobában",
+          "en": "Growth ruler – in the nursery",
+          "de": "Messlatte – im Kinderzimmer"
+        }
+      }
+    ],
     "price": {
       "huf": 11900,
       "eur": 30
@@ -117,13 +459,80 @@
       "hu": "Fa növekedésmérő, amely évekig elkíséri a gyermeket.",
       "en": "A wooden growth ruler that lasts through the years.",
       "de": "Eine hölzerne Messlatte, die über Jahre begleitet."
+    },
+    "details": {
+      "hu": "Tömör fa növekedésmérő léc, amelyen évről évre jelölheted, mennyit nőtt a gyermek. A tetejére a gyermek neve kerül.\n\nA skála 30-tól 150 cm-ig tart: a lécet a padlótól 30 cm-re kell felszerelni. Költözéskor egyszerűen leveszed, és viszed magaddal az emlékeket.",
+      "en": "A solid wood growth chart to mark how much your child has grown, year after year, with their name at the top.\n\nThe scale runs from 30 to 150 cm: fix the ruler 30 cm above the floor. When you move, just take it down and bring the memories with you.",
+      "de": "Eine Messlatte aus Massivholz, auf der du Jahr für Jahr festhältst, wie viel dein Kind gewachsen ist – mit seinem Namen oben.\n\nDie Skala reicht von 30 bis 150 cm: die Latte 30 cm über dem Boden anbringen. Beim Umzug einfach abnehmen und die Erinnerungen mitnehmen."
+    },
+    "features": {
+      "hu": [
+        "Névvel a tetején",
+        "Gravírozott centiméter-skála 30–150 cm",
+        "Rögzítőcsavarokkal"
+      ],
+      "en": [
+        "Name at the top",
+        "Engraved centimetre scale, 30–150 cm",
+        "Wall fixings included"
+      ],
+      "de": [
+        "Mit Namen oben",
+        "Gravierte Zentimeterskala 30–150 cm",
+        "Mit Befestigungsschrauben"
+      ]
+    },
+    "materials": {
+      "hu": "Tömör bükkfa, natúr olaj",
+      "en": "Solid beech, natural oil",
+      "de": "Massive Buche, Naturöl"
+    },
+    "dimensions": {
+      "height": 120,
+      "width": 15,
+      "depth": 1.8,
+      "unit": "cm"
+    },
+    "weight": {
+      "value": 1400,
+      "unit": "g"
+    },
+    "care": {
+      "hu": "Száraz vagy enyhén nedves ruhával töröld át.",
+      "en": "Wipe with a dry or slightly damp cloth.",
+      "de": "Mit einem trockenen oder leicht feuchten Tuch abwischen."
     }
   },
   {
     "id": "name-letters",
+    "slug": "fa-betuk-nevre",
     "category": "personalised",
     "featured": false,
+    "availability": "made_to_order",
+    "leadTime": {
+      "hu": "Elkészítési idő: 5–7 munkanap",
+      "en": "Ready in 5–7 working days",
+      "de": "Fertig in 5–7 Werktagen"
+    },
     "image": "assets/shop/name-letters.svg",
+    "gallery": [
+      {
+        "src": "assets/shop/name-letters-detail.svg",
+        "alt": {
+          "hu": "Fa betűk névre – közelről",
+          "en": "Wooden name letters – close-up",
+          "de": "Holzbuchstaben mit Namen – Nahaufnahme"
+        }
+      },
+      {
+        "src": "assets/shop/name-letters-room.svg",
+        "alt": {
+          "hu": "Fa betűk névre – a babaszobában",
+          "en": "Wooden name letters – in the nursery",
+          "de": "Holzbuchstaben mit Namen – im Kinderzimmer"
+        }
+      }
+    ],
     "price": {
       "huf": 7500,
       "eur": 19
@@ -137,13 +546,74 @@
       "hu": "Egyedi fa betűk a gyermek nevével.",
       "en": "Individual wooden letters spelling the child's name.",
       "de": "Einzelne Holzbuchstaben mit dem Namen des Kindes."
+    },
+    "details": {
+      "hu": "Különálló fa betűk a gyermek nevével – a falra, a polcra vagy a kiságy fölé. A betűket natúr színben vagy festve készítjük.\n\nAz ár legfeljebb 6 betűs névre vonatkozik; hosszabb névnél a rendelés után egyeztetünk.",
+      "en": "Individual wooden letters spelling your child's name – for the wall, a shelf or above the cot. Natural wood or painted.\n\nThe price covers names of up to 6 letters; for longer names we'll agree the details after you order.",
+      "de": "Einzelne Holzbuchstaben mit dem Namen deines Kindes – für Wand, Regal oder über dem Babybett. Naturholz oder bemalt.\n\nDer Preis gilt für Namen mit bis zu 6 Buchstaben; bei längeren Namen stimmen wir uns nach der Bestellung ab."
+    },
+    "features": {
+      "hu": [
+        "Betűnként 10 cm magas",
+        "Natúr vagy festett kivitel",
+        "Rögzítőszalaggal"
+      ],
+      "en": [
+        "Each letter 10 cm tall",
+        "Natural or painted finish",
+        "Mounting strips included"
+      ],
+      "de": [
+        "Jeder Buchstabe 10 cm hoch",
+        "Natur oder bemalt",
+        "Mit Klebestreifen"
+      ]
+    },
+    "materials": {
+      "hu": "Nyír rétegelt lemez, vízbázisú festék",
+      "en": "Birch plywood, water-based paint",
+      "de": "Birkensperrholz, Farbe auf Wasserbasis"
+    },
+    "dimensions": {
+      "height": 10,
+      "depth": 0.6,
+      "unit": "cm"
+    },
+    "weight": {
+      "value": 25,
+      "unit": "g"
+    },
+    "care": {
+      "hu": "Száraz ruhával portalanítsd.",
+      "en": "Dust with a dry cloth.",
+      "de": "Mit einem trockenen Tuch abstauben."
     }
   },
   {
     "id": "night-light",
+    "slug": "fa-ejjeli-lampa",
     "category": "lighting",
     "featured": true,
+    "availability": "in_stock",
     "image": "assets/shop/night-light.svg",
+    "gallery": [
+      {
+        "src": "assets/shop/night-light-detail.svg",
+        "alt": {
+          "hu": "Fa éjjeli lámpa – közelről",
+          "en": "Wooden night light – close-up",
+          "de": "Nachtlicht aus Holz – Nahaufnahme"
+        }
+      },
+      {
+        "src": "assets/shop/night-light-room.svg",
+        "alt": {
+          "hu": "Fa éjjeli lámpa – a babaszobában",
+          "en": "Wooden night light – in the nursery",
+          "de": "Nachtlicht aus Holz – im Kinderzimmer"
+        }
+      }
+    ],
     "price": {
       "huf": 15900,
       "eur": 40
@@ -157,13 +627,80 @@
       "hu": "Meleg fényű fa éjjeli lámpa a nyugodt estékhez.",
       "en": "A warm wooden night light for calm evenings.",
       "de": "Ein warmes Nachtlicht aus Holz für ruhige Abende."
+    },
+    "details": {
+      "hu": "Meleg fényű fa éjjeli lámpa a nyugodt estékhez és az éjszakai etetésekhez. A fényerő érintéssel állítható, így éppen annyi fényt ad, amennyi kell.\n\nUSB-C kábellel működik; a kábelt mindig a gyermek elérhetőségén kívül vezesd.",
+      "en": "A warm wooden night light for calm evenings and night feeds. Touch to dim, so it gives just as much light as you need.\n\nPowered by USB-C; always route the cable out of your child's reach.",
+      "de": "Ein warm leuchtendes Holz-Nachtlicht für ruhige Abende und nächtliches Stillen. Per Berührung dimmbar – genau so hell wie nötig.\n\nStromversorgung über USB-C; das Kabel immer außerhalb der Reichweite des Kindes verlegen."
+    },
+    "features": {
+      "hu": [
+        "Melegfehér LED (2700 K)",
+        "Érintéssel szabályozható fényerő",
+        "USB-C kábellel"
+      ],
+      "en": [
+        "Warm white LED (2700 K)",
+        "Touch-dimmable",
+        "USB-C cable included"
+      ],
+      "de": [
+        "Warmweiße LED (2700 K)",
+        "Per Berührung dimmbar",
+        "Mit USB-C-Kabel"
+      ]
+    },
+    "materials": {
+      "hu": "Bükkfa, opál akril búra",
+      "en": "Beech wood, opal acrylic shade",
+      "de": "Buchenholz, Schirm aus Opal-Acryl"
+    },
+    "dimensions": {
+      "width": 18,
+      "height": 22,
+      "depth": 9,
+      "unit": "cm"
+    },
+    "weight": {
+      "value": 650,
+      "unit": "g"
+    },
+    "care": {
+      "hu": "Kikapcsolt állapotban, száraz ruhával tisztítsd.",
+      "en": "Clean with a dry cloth while switched off.",
+      "de": "Ausgeschaltet mit einem trockenen Tuch reinigen."
     }
   },
   {
     "id": "keepsake-box",
+    "slug": "emlekdoboz",
     "category": "keepsake",
     "featured": false,
+    "availability": "made_to_order",
+    "leadTime": {
+      "hu": "Elkészítési idő: 5–7 munkanap",
+      "en": "Ready in 5–7 working days",
+      "de": "Fertig in 5–7 Werktagen"
+    },
     "image": "assets/shop/keepsake-box.svg",
+    "gallery": [
+      {
+        "src": "assets/shop/keepsake-box-detail.svg",
+        "alt": {
+          "hu": "Emlékdoboz – közelről",
+          "en": "Keepsake box – close-up",
+          "de": "Erinnerungsbox – Nahaufnahme"
+        }
+      },
+      {
+        "src": "assets/shop/keepsake-box-room.svg",
+        "alt": {
+          "hu": "Emlékdoboz – a babaszobában",
+          "en": "Keepsake box – in the nursery",
+          "de": "Erinnerungsbox – im Kinderzimmer"
+        }
+      }
+    ],
     "price": {
       "huf": 13500,
       "eur": 34
@@ -177,13 +714,75 @@
       "hu": "Fa emlékdoboz az első apró kincseknek.",
       "en": "A wooden keepsake box for the first little treasures.",
       "de": "Eine Erinnerungsbox aus Holz für die ersten kleinen Schätze."
+    },
+    "details": {
+      "hu": "Fa emlékdoboz az első apró kincseknek: a kórházi karszalagnak, az első tincsnek, az első cipőnek.\n\nA tolófedélre kérésre gravírozzuk a gyermek nevét és születési dátumát.",
+      "en": "A wooden keepsake box for the first little treasures: the hospital bracelet, the first lock of hair, the first shoes.\n\nOn request we engrave your child's name and date of birth on the sliding lid.",
+      "de": "Eine Erinnerungsbox aus Holz für die ersten kleinen Schätze: das Klinikarmband, die erste Locke, die ersten Schuhe.\n\nAuf Wunsch gravieren wir Namen und Geburtsdatum deines Kindes in den Schiebedeckel."
+    },
+    "features": {
+      "hu": [
+        "Tolófedeles kialakítás",
+        "Kérésre névvel és dátummal gravírozva",
+        "Belül három rekesz"
+      ],
+      "en": [
+        "Sliding lid",
+        "Engraved with name and date on request",
+        "Three compartments inside"
+      ],
+      "de": [
+        "Mit Schiebedeckel",
+        "Auf Wunsch mit Namen und Datum graviert",
+        "Innen drei Fächer"
+      ]
+    },
+    "materials": {
+      "hu": "Nyírfa, natúr olaj",
+      "en": "Birch wood, natural oil",
+      "de": "Birkenholz, Naturöl"
+    },
+    "dimensions": {
+      "width": 25,
+      "depth": 18,
+      "height": 10,
+      "unit": "cm"
+    },
+    "weight": {
+      "value": 900,
+      "unit": "g"
+    },
+    "care": {
+      "hu": "Száraz ruhával töröld át.",
+      "en": "Wipe with a dry cloth.",
+      "de": "Mit einem trockenen Tuch abwischen."
     }
   },
   {
     "id": "toy-basket",
+    "slug": "fonott-jatekkosar",
     "category": "storage",
     "featured": false,
+    "availability": "in_stock",
     "image": "assets/shop/toy-basket.svg",
+    "gallery": [
+      {
+        "src": "assets/shop/toy-basket-detail.svg",
+        "alt": {
+          "hu": "Fonott játékkosár – közelről",
+          "en": "Woven toy basket – close-up",
+          "de": "Geflochtener Spielzeugkorb – Nahaufnahme"
+        }
+      },
+      {
+        "src": "assets/shop/toy-basket-room.svg",
+        "alt": {
+          "hu": "Fonott játékkosár – a babaszobában",
+          "en": "Woven toy basket – in the nursery",
+          "de": "Geflochtener Spielzeugkorb – im Kinderzimmer"
+        }
+      }
+    ],
     "price": {
       "huf": 14900,
       "eur": 37
@@ -197,6 +796,47 @@
       "hu": "Puha fonott kosár a játékok rendben tartásához.",
       "en": "A soft woven basket to keep toys tidy.",
       "de": "Ein weicher Flechtkorb, um Spielzeug ordentlich zu halten."
+    },
+    "details": {
+      "hu": "Puha, fonott pamutkosár, amelyben rendben tarthatók a játékok, a plüssök vagy a pelenkák. Nincs benne merev váz, így nem tud megsérteni senkit.\n\nA két fogantyúval könnyen áthelyezhető, és összenyomva is visszanyeri a formáját.",
+      "en": "A soft woven cotton basket to keep toys, cuddly toys or nappies tidy. It has no rigid frame, so there's nothing hard to bump into.\n\nTwo handles make it easy to move, and it springs back into shape when squashed.",
+      "de": "Ein weicher, geflochtener Baumwollkorb für Spielzeug, Kuscheltiere oder Windeln. Ohne festes Gestell, also ohne harte Kanten.\n\nZwei Griffe machen ihn leicht tragbar, und er findet nach dem Zusammendrücken in seine Form zurück."
+    },
+    "features": {
+      "hu": [
+        "Két fogantyúval",
+        "Puha, merev váz nélkül",
+        "Kézzel mosható"
+      ],
+      "en": [
+        "Two handles",
+        "Soft, no rigid frame",
+        "Hand washable"
+      ],
+      "de": [
+        "Mit zwei Griffen",
+        "Weich, ohne festes Gestell",
+        "Handwäsche möglich"
+      ]
+    },
+    "materials": {
+      "hu": "100% pamut kötél",
+      "en": "100% cotton rope",
+      "de": "100 % Baumwollkordel"
+    },
+    "dimensions": {
+      "diameter": 35,
+      "height": 30,
+      "unit": "cm"
+    },
+    "weight": {
+      "value": 700,
+      "unit": "g"
+    },
+    "care": {
+      "hu": "Kézzel, 30 °C-on mosd, és fektetve szárítsd.",
+      "en": "Hand wash at 30 °C and dry flat.",
+      "de": "Bei 30 °C von Hand waschen und liegend trocknen."
     }
   }
 ]
