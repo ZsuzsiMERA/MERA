@@ -21,7 +21,7 @@ const SITE = 'https://merahome.hu';
 const OUT_DIR = path.join(root, 'termek');
 const LANG = 'hu';
 const STATIC_PAGES = ['', 'bolt', 'tudnivalok'];
-const DEFAULT_OG_IMAGE = 'assets/og-image.jpg';
+const DEFAULT_OG_IMAGE = 'assets/og-image.jpg?v=2';
 
 const products = JSON.parse(fs.readFileSync(path.join(root, 'products.json'), 'utf8'));
 const shopPage = fs.readFileSync(path.join(root, 'bolt.html'), 'utf8');
