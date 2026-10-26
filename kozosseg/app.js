@@ -1,19 +1,26 @@
-const portals=[['Instagram',0,'https://www.instagram.com/its_merababy/'],['Facebook',390,'https://www.facebook.com/itsmerababy'],['TikTok',775,'https://www.tiktok.com/@its_merababy'],['Pinterest',1146,'https://www.pinterest.com/itsmerababy/']];
-const section=document.querySelector('.portals');
-portals.forEach(([name,x,url],i)=>{
- const card=document.createElement('article');card.className='portal'; const dx=[130,510,870,1210][i],dw=[215,205,200,210][i],dy=388,dh=375; const arch='M '+dx+' 763 L '+dx+' 487 Q '+dx+' 388 '+(dx+dw/2)+' 388 Q '+(dx+dw)+' 388 '+(dx+dw)+' 487 L '+(dx+dw)+' 763 Z'; card.style.setProperty('--door-left',((dx-x)/390*100)+'%');card.style.setProperty('--door-width',(dw/390*100)+'%');
- card.innerHTML=`<div class="art"><svg class="scene" viewBox="${x} 285 390 600" role="img" aria-label="${name}: arany virágokkal díszített antik kapu, mögötte meleg fényű mesebeli világ"><image href="assets/mera-portals.png" width="1536" height="1024"/></svg><div class="glow"></div><svg class="closed-scene" viewBox="${x} 285 390 600" aria-hidden="true"><defs><mask id="closed-mask-${i}" maskUnits="userSpaceOnUse" x="${x}" y="285" width="390" height="600"><rect x="${x}" y="285" width="390" height="600" fill="white"/><path d="${arch}" fill="black"/></mask></defs><image href="assets/mera-closed.png" width="1536" height="1024" mask="url(#closed-mask-${i})"/></svg><div class="door" aria-hidden="true"><svg viewBox="${dx} ${dy} ${dw} ${dh}" preserveAspectRatio="none"><defs><clipPath id="door-clip-${i}"><path d="${arch}"/></clipPath></defs><image href="assets/mera-closed.png" width="1536" height="1024" clip-path="url(#door-clip-${i})"/></svg></div><a class="trigger" href="${url}" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-label="${name} kapu kinyitása"></a></div><p class="caption">0${i+1} · EGY ÚJABB APRÓ CSODA</p><a class="visit" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="${name} – MERA profil megnyitása új lapon">${name} <span aria-hidden="true">↗</span></a>`;
- section.append(card);
- const trigger=card.querySelector('.trigger');let pinned=false;
- const setOpen=value=>{card.classList.toggle('open',value);trigger.setAttribute('aria-expanded',value);trigger.setAttribute('aria-label',value ? `${name} – MERA profil megnyitása új lapon` : `${name} kapu kinyitása`)};
- card.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')setOpen(true)});
- card.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse'&&!pinned)setOpen(false)});
- trigger.addEventListener('click',e=>{if(!card.classList.contains('open')){e.preventDefault();pinned=true;setOpen(true)}});
- trigger.addEventListener('keydown',e=>{if(e.key==='Escape'){pinned=false;setOpen(false)}});
- card.openGate=value=>{pinned=value;setOpen(value)};
+const portals = [
+ {name:'Instagram',url:'https://www.instagram.com/its_merababy/',x:174,y:318,w:156,h:523,hinge:'left'},
+ {name:'Facebook',url:'https://www.facebook.com/itsmerababy',x:511,y:397,w:246,h:444,double:true},
+ {name:'TikTok',url:'https://www.tiktok.com/@its_merababy',x:872,y:364,w:178,h:477,hinge:'right',shape:'polygon(0 10%,12% 9%,25% 6%,38% 1%,50% 0,62% 1%,75% 6%,88% 9%,100% 10%,100% 100%,0 100%)'},
+ {name:'Pinterest',url:'https://www.pinterest.com/itsmerababy/',x:1245,y:337,w:160,h:496,hinge:'right'}
+];
+const svgCrop = (asset,x,y,w,h) => `<svg viewBox="${x} ${y} ${w} ${h}" preserveAspectRatio="none" aria-hidden="true"><image href="assets/${asset}" width="1536" height="1024"/></svg>`;
+const container = document.querySelector('.gates');
+portals.forEach(p => {
+ const gate = document.createElement('article'); gate.className = 'gate';
+ Object.assign(gate.style,{left:`${p.x/1536*100}%`,top:`${p.y/1024*100}%`,width:`${p.w/1536*100}%`,height:`${p.h/1024*100}%`});
+ if(p.shape) gate.style.setProperty('--aperture',p.shape);
+ gate.style.setProperty('--hinge',`${p.hinge || 'left'} center`);
+ gate.style.setProperty('--angle',p.hinge==='right'?'105deg':'-105deg');
+ let leaves;
+ if(p.double){leaves = `<div class="leaf left-half">${svgCrop('palace-closed.png',p.x,p.y,p.w/2,p.h)}</div><div class="leaf right-half">${svgCrop('palace-closed.png',p.x+p.w/2,p.y,p.w/2,p.h)}</div>`;}
+ else{leaves = `<div class="leaf">${svgCrop('palace-closed.png',p.x,p.y,p.w,p.h)}</div>`;}
+ gate.innerHTML = `<div class="interior">${svgCrop('palace-open.png',p.x,p.y,p.w,p.h)}</div>${leaves}<a class="gate-link" href="${p.url}" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-label="${p.name} kapu kinyitása"></a>`;
+ container.append(gate);
+ const link = gate.querySelector('.gate-link'); let pinned = false;
+ const open = value => {gate.classList.toggle('open',value);link.setAttribute('aria-expanded',String(value));link.setAttribute('aria-label',value?`${p.name} – MERA profil megnyitása új lapon`:`${p.name} kapu kinyitása`);};
+ gate.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')open(true)});
+ gate.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse'&&!pinned)open(false)});
+ link.addEventListener('click',e=>{if(!gate.classList.contains('open')){e.preventDefault();pinned=true;open(true)}});
+ link.addEventListener('keydown',e=>{if(e.key==='Escape'){pinned=false;open(false)}if(e.key===' '){e.preventDefault();pinned=!gate.classList.contains('open');open(pinned)}});
 });
-let allOpen=false;document.querySelector('#all').addEventListener('click',e=>{allOpen=!allOpen;document.querySelectorAll('.portal').forEach(c=>c.openGate(allOpen));e.currentTarget.innerHTML=allOpen?'Csukd be az összes kaput <span aria-hidden="true">↙</span>':'Nyisd ki az összes kaput <span aria-hidden="true">↗</span>';e.currentTarget.setAttribute('aria-pressed',allOpen)});
-
-
-
-
