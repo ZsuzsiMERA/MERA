@@ -130,7 +130,7 @@ const translations = {
     product2Title: 'Lenpárna',
     product3Alt: 'Kerámiaváza',
     product3Title: 'Kerámiaváza',
-    aboutTitle: 'MERA története/ Rólam',
+    aboutTitle: 'A MERA története/ Rólam',
     aboutTagline: 'A legszebb kezdetekhez',
     aboutOriginHeading: 'Egy személyes történetből született',
     aboutOriginCopy: 'A MERA abból a gondolatból született, hogy egy gyerekszoba lehet egyszerre szép, különleges és mélyen személyes. Amióta édesanya lettem, egészen máshogy tekintek azokra a tárgyakra, amelyekkel a gyermekeinket körülvesszük. A saját kislányom szobájának tervezésekor éreztem meg igazán, mennyit számítanak a részletek – azok az elemek, amelyeket nem csupán az esztétikumuk miatt választunk, hanem mert valóban hozzánk tartoznak. Ebből a felismerésből született meg a MERA.',
