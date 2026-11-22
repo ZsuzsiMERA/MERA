@@ -234,8 +234,10 @@
     // Found keys are hidden; mark them before they're shown so they don't fade out on load.
     if (found.has(ids[index])) button.classList.add('is-found');
     button.innerHTML = keyArts[index];
+    button.addEventListener('pointerdown', () => window.MeraChime?.prepare());
     button.addEventListener('click', () => {
       const isNew = !found.has(ids[index]);
+      if (isNew) window.MeraChime?.play();
       found.add(ids[index]);
       try { localStorage.setItem(storageKey, JSON.stringify([...found])); } catch { storageAvailable = false; }
       if (isNew) {
@@ -246,7 +248,7 @@
       render();
       status.textContent = `${words().messages[index]} ${words().progress}: ${found.size}/5`;
       open(index, found.size === 5 && !solved, isNew && found.size === 5);
-      if (isNew) { celebrateDiscovery(); window.MeraChime?.play(); }
+      if (isNew) celebrateDiscovery();
     });
     button.addEventListener('animationend', () => button.classList.remove('is-glinting'));
     buttons.push(button);

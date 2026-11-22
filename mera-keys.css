@@ -122,3 +122,31 @@
 @keyframes mera-discovery-finish{0%,99%{opacity:1}100%{opacity:0}}
 @media(prefers-reduced-motion:reduce){.is-key-discovery .mera-discovery-sparkles,.is-key-discovery .mera-discovery-sparkles i,.is-key-discovery .mera-key-emblem .mera-key-inspect>.mera-key-art,.is-key-discovery .mera-real-lock{animation:none}.mera-discovery-sparkles{display:none}}
 .mera-chime-controls{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:16px auto 0}.mera-chime-controls button{min-height:44px;padding:8px 12px;border:1px solid #d8c7b5;border-radius:20px;background:transparent;color:#716047;font:12px Arial,sans-serif;cursor:pointer}.mera-chime-controls button:hover{background:#efe5d5}.mera-chime-controls button:focus-visible{outline:2px solid #80602e;outline-offset:3px}.mera-chime-controls button:disabled{opacity:.5;cursor:default}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .mera-hidden-key:not(.is-found):hover .mera-key-art {
+    transform-origin: 50% 20%;
+    animation: mera-key-sway .66s ease-in-out;
+  }
+  .mera-hidden-key:not(.is-found):hover::after {
+    content: "";
+    position: absolute;
+    top: 18%;
+    right: 19%;
+    width: 8px;
+    height: 8px;
+    pointer-events: none;
+    background: #e6c47b;
+    clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+    animation: mera-key-twinkle .6s ease-out both;
+  }
+}
+@keyframes mera-key-sway {
+  0%, 100% { transform: none }
+  35% { transform: translateX(3px) rotate(6deg) }
+  70% { transform: translateX(-1px) rotate(-3deg) }
+}
+@keyframes mera-key-twinkle {
+  0%, 100% { opacity: 0; transform: scale(.4) }
+  40% { opacity: .95; transform: scale(1) }
+}

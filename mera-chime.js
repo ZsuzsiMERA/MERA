@@ -1,79 +1,55 @@
 (() => {
   'use strict';
   let context;
-  let activeVoice;
-  let bufferPromise;
-  let pending = false;
-  let requestId = 0;
-  const audioUrl = new URL('assets/mera-original-sparkle.mp3', document.currentScript.src);
-  const labels = {
-    hu: { source: 'Hangforrás' },
-    en: { source: 'Sound credit' },
-    de: { source: 'Klangquelle' }
-  };
-  function renderCredit() {
-    const text = labels[document.documentElement.lang] || labels.hu;
-    const credit = document.querySelector('.mera-chime-source');
-    if (credit) credit.textContent = text.source;
-  }
-  function silence() {
-    requestId++;
-    pending = false;
-    if (!context || !activeVoice) return;
-    const voice = activeVoice;
-    activeVoice = null;
-    const now = context.currentTime;
-    voice.gain.gain.cancelScheduledValues(now);
-    voice.gain.gain.setTargetAtTime(0, now, 0.015);
-    voice.source.stop(now + 0.08);
-  }
-  function loadBuffer() {
-    if (!bufferPromise) {
-      bufferPromise = fetch(audioUrl).then(response => {
-        if (!response.ok) throw new Error('Chime could not be loaded');
-        return response.arrayBuffer();
-      }).then(data => context.decodeAudioData(data)).catch(error => {
-        bufferPromise = null;
-        throw error;
-      });
-    }
-    return bufferPromise;
-  }
-  async function play() {
-    if (document.hidden || pending || activeVoice) return;
-    const id = ++requestId;
-    pending = true;
+  let generation = 0;
+  const voices = new Set();
+
+  function prepare() {
     try {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      if (!AudioContext) return;
-      context ||= new AudioContext();
-      // Called only from an explicit click/keyboard activation, never on page load.
-      const resumed = context.state === 'suspended' ? context.resume() : Promise.resolve();
-      const [buffer] = await Promise.all([loadBuffer(), resumed]);
-      if (id !== requestId || document.hidden || context.state !== 'running') return;
-      const source = context.createBufferSource();
-      const gain = context.createGain();
-      const voice = { source, gain };
-      source.buffer = buffer;
-      source.playbackRate.value = 1;
-      gain.gain.value = 0.35;
-      source.connect(gain);
-      gain.connect(context.destination);
-      source.onended = () => {
-        source.disconnect();
-        gain.disconnect();
-        if (activeVoice === voice) activeVoice = null;
-      };
-      activeVoice = voice;
-      source.start();
+      const Audio = window.AudioContext || window.webkitAudioContext;
+      if (!Audio || document.hidden) return;
+      context ||= new Audio({ latencyHint: 'interactive' });
+      if (context.state !== 'running') return context.resume().catch(() => {});
     } catch {
-      // Audio support or device failure must never interrupt the key game.
-    } finally {
-      if (id === requestId) pending = false;
+      // Sound is optional when the device has no audio output.
     }
   }
-  window.MeraChime = Object.freeze({ play });
-  document.addEventListener('DOMContentLoaded', renderCredit);
-  document.addEventListener('mera:languagechange', renderCredit);
-  document.addEventListener('visibilitychange', () => { if (document.hidden) silence(); });
+
+  function strike(frequency, start, volume) {
+    // The high partials decay faster than the body of the bell.
+    for (const [ratio, level, decay] of [[1, 1, 0.95], [2.01, 0.24, 0.49], [2.73, 0.13, 0.28], [4.08, 0.04, 0.16]]) {
+      const tone = context.createOscillator();
+      const envelope = context.createGain();
+      tone.frequency.value = frequency * ratio;
+      envelope.gain.setValueAtTime(0, start);
+      envelope.gain.linearRampToValueAtTime(volume * level, start + 0.007);
+      envelope.gain.exponentialRampToValueAtTime(0.00001, start + decay);
+      tone.connect(envelope);
+      envelope.connect(context.destination);
+      voices.add(tone);
+      tone.onended = () => {
+        voices.delete(tone);
+        tone.disconnect();
+        envelope.disconnect();
+      };
+      tone.start(start);
+      tone.stop(start + decay + 0.01);
+    }
+  }
+
+  async function play() {
+    const id = ++generation;
+    await prepare();
+    if (id !== generation || document.hidden || context?.state !== 'running') return;
+    const start = context.currentTime;
+    strike(1046.5, start, 0.14);
+    strike(1568, start + 0.09, 0.075);
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) return;
+    generation++;
+    for (const tone of voices) tone.stop();
+  });
+  window.MeraChime = Object.freeze({ prepare, play });
 })();
