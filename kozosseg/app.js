@@ -15,7 +15,7 @@ portals.forEach(p => {
  let leaves;
  if(p.double){leaves = `<div class="leaf left-half">${svgCrop('palace-closed.png',p.x,p.y,p.w/2,p.h)}</div><div class="leaf right-half">${svgCrop('palace-closed.png',p.x+p.w/2,p.y,p.w/2,p.h)}</div>`;}
  else{leaves = `<div class="leaf">${svgCrop('palace-closed.png',p.x,p.y,p.w,p.h)}</div>`;}
- gate.innerHTML = `<div class="interior">${svgCrop('palace-open.png',p.x,p.y,p.w,p.h)}</div>${leaves}<a class="gate-link" href="${p.url}" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-label="${p.name} kapu kinyitása"></a>`;
+ gate.innerHTML = `<div class="interior">${svgCrop('palace-open-refined.png',p.x,p.y,p.w,p.h)}</div>${leaves}<a class="gate-link" href="${p.url}" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-label="${p.name} kapu kinyitása"></a>`;
  container.append(gate);
  const link = gate.querySelector('.gate-link'); let pinned = false;
  const open = value => {gate.classList.toggle('open',value);link.setAttribute('aria-expanded',String(value));link.setAttribute('aria-label',value?`${p.name} – MERA profil megnyitása új lapon`:`${p.name} kapu kinyitása`);};
@@ -24,3 +24,4 @@ portals.forEach(p => {
  link.addEventListener('click',e=>{if(!gate.classList.contains('open')){e.preventDefault();pinned=true;open(true)}});
  link.addEventListener('keydown',e=>{if(e.key==='Escape'){pinned=false;open(false)}if(e.key===' '){e.preventDefault();pinned=!gate.classList.contains('open');open(pinned)}});
 });
+
