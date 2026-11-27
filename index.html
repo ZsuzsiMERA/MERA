@@ -42,6 +42,17 @@ html:lang(hu) #rolunk {
   background: #faf5ec;
   color: #44392f;
 }
+#rolunk {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  font-size: clamp(1.0625rem, 1rem + .2vw, 1.1875rem);
+}
+#rolunk h2, #rolunk h3 {
+  font-family: inherit;
+  font-weight: 400;
+  letter-spacing: -.02em;
+  line-height: 1.18;
+}
+.about-introduction h3 { font-style: italic }
 .about-hungarian { text-align: left }
 .about-introduction {
   display: grid;
@@ -65,7 +76,7 @@ html:lang(hu) #rolunk {
   aspect-ratio: 1536 / 1024;
   border: 0;
   background: #efe3d2;
-  filter: saturate(.73) brightness(1.035);
+  filter: saturate(.77) brightness(1.035);
 }
 @media (max-width: 620px) {
   .about-introduction { grid-template-columns: 1fr; gap: 1.5rem }
