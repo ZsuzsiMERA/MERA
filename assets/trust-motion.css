@@ -1,0 +1,33 @@
+.trust-motion{display:block;width:80%;max-width:210px;aspect-ratio:480/356;margin:0 auto 24px;padding:0;background:none;border:0;cursor:pointer}
+.trust-motion svg{display:block;width:100%;height:100%}
+.trust-motion:focus-visible{outline:2px solid #aa8658;outline-offset:4px}
+@media(max-width:780px){.trust-motion{max-width:200px;margin-bottom:16px}}
+.trust-motion .mama-head{transform-origin:268px 165px;transform:rotate(7deg)}
+.trust-motion .heart{transform-origin:center;transform-box:fill-box}
+.trust-motion .parcel{transform-origin:237px 66px}
+@media(prefers-reduced-motion:no-preference){
+.trust-motion .upper{transform:translateY(21px)}
+.trust-motion .lower{transform:translateY(-21px)}
+.trust-motion .heart{opacity:0}
+.trust-motion.run .mama-head{animation:trust-kiss 2.45s ease-in-out both}
+.trust-motion.run .gesture{transform-origin:63px 146px;animation:trust-gesture 2s ease-in-out both}
+.trust-motion.run .speck{animation:trust-softdust 1.4s ease-in-out var(--delay) both}
+.trust-motion .ambient{animation:trust-ambientGlow 3.8s linear var(--phase) infinite}
+.trust-motion.run .upper{animation:trust-touchTop 2.7s ease-in-out both}
+.trust-motion.run .lower{animation:trust-touchBottom 2.7s ease-in-out both}
+.trust-motion.run .heart{animation:trust-unfold 2.7s ease-in-out both}
+.trust-motion.run .bird{animation:trust-glide 4.5s ease-in-out both}
+.trust-motion.run .wing{transform-origin:112px 96px;animation:trust-sweep 1.72s cubic-bezier(.44,0,.33,1) 2 both}
+.trust-motion.run .wing.back{transform-origin:127px 90px;animation-delay:.07s}
+.trust-motion.run .parcel{animation:trust-drift 2.1s ease-in-out 2}
+@keyframes trust-kiss{0%,100%{transform:rotate(7deg)}44%,64%{transform:rotate(0deg)}}
+@keyframes trust-gesture{0%,100%{transform:rotate(0)}38%{transform:rotate(-5deg)}}
+@keyframes trust-softdust{0%{opacity:0}28%{opacity:.87}65%{opacity:.45}100%{opacity:0;transform:translate(-1px,-2px)}}
+@keyframes trust-ambientGlow{0%,80%,100%{opacity:.05}26%{opacity:.82}54%{opacity:.19}}
+@keyframes trust-touchTop{0%,48%{transform:translateY(21px)}85%,100%{transform:translateY(0)}}
+@keyframes trust-touchBottom{0%,48%{transform:translateY(-21px)}85%,100%{transform:translateY(0)}}
+@keyframes trust-unfold{0%,9%{opacity:0;transform:scale(.5)}39%,48%{opacity:1;transform:scale(.82)}84%{opacity:1;transform:scale(1.035)}100%{opacity:1;transform:scale(1)}}
+@keyframes trust-glide{0%{transform:translate(-26px,5px)}32%{transform:translate(-17px,-1.5px)}53%{transform:translate(-10px,1px)}74%{transform:translate(-5px,-2px)}100%{transform:translate(0,0)}}
+@keyframes trust-sweep{0%,100%{transform:rotate(0) scaleY(1)}38%{transform:rotate(-11deg) scaleY(.77)}71%{transform:rotate(-3deg) scaleY(.94)}}
+@keyframes trust-drift{35%{transform:rotate(2.6deg)}78%{transform:rotate(-1.4deg)}}
+}
