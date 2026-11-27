@@ -23,12 +23,54 @@
 <meta name="twitter:image" content="https://merahome.hu/assets/mera-szatenfeny-kulcs.jpg">
 <link rel="stylesheet" href="styles.css?v=trust-compact-2"><link rel="stylesheet" href="hero-scrub.css"><link rel="stylesheet" href="localization.css"><link rel="stylesheet" href="shop-section.css"><script src="hero-scrub.js" defer></script><script src="localization.js?v=about-title-3" defer></script><script src="currency.js" defer></script><script src="product-format.js" defer></script><script src="products.js" defer></script><script src="shop-basket.js" defer></script><link rel="stylesheet" href="mera-keys.css?v=discovery-3"><script src="mera-chime.js?v=grab-key-1" defer></script><script src="mera-keys.js?v=discovery-3" defer></script><link rel="stylesheet" href="footer.css?v=1"><style>
 html:lang(hu) .about-translated, html:not(:lang(hu)) .about-hungarian { display: none }
-html:lang(hu) #rolunk { max-width: 52rem }
-.about-hungarian { display: flow-root; text-align: left }
-.about-hungarian h3 { margin-top: 0 }
-.about-portrait { float: left; width: 35%; max-width: 17rem; height: auto; margin: 0 clamp(1.1rem, 3vw, 2rem) .85rem 0; border-radius: .5rem }
-@media (max-width: 540px) { .about-portrait { float: none; display: block; width: min(76%, 17rem); margin: 0 auto 1.4rem } }
-.about-hungarian p { line-height: 1.65 }
+
+.home-header {
+  background: #f9f0e0;
+  border-bottom: 1px solid #e5d5bf;
+}
+.home-header > .brand {
+  color: #64472c;
+  font-family: "Baskerville", "Times New Roman", serif;
+  font-size: clamp(1.65rem, 3vw, 2.25rem);
+  letter-spacing: .09em;
+  line-height: 1;
+}
+
+html:lang(hu) #rolunk {
+  max-width: 58rem;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  background: #faf5ec;
+  color: #44392f;
+}
+.about-hungarian { text-align: left }
+.about-introduction {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+}
+.about-portrait { display: block; width: 100%; height: auto; border-radius: .35rem }
+.about-introduction h3 { margin: 0 0 .75rem }
+.about-hungarian p { line-height: 1.7; margin: 0 0 1em }
+.about-hungarian p:last-child { margin-bottom: 0 }
+.about-story {
+  max-width: 62ch;
+  margin: clamp(2rem, 5vw, 3.25rem) auto 0;
+  padding-top: 1.75rem;
+  border-top: 1px solid #ddcdb6;
+}
+.community-gates {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1536 / 1024;
+  border: 0;
+  background: #efe3d2;
+  filter: saturate(.73) brightness(1.035);
+}
+@media (max-width: 620px) {
+  .about-introduction { grid-template-columns: 1fr; gap: 1.5rem }
+  .about-portrait { width: min(100%, 16rem); margin-inline: auto }
+}
 </style>
 </head>
 <body><svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute"><defs><filter id="mera-gold-line" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0.78 0 0 0 0 0.54 0 0 0 0 0.15 0 0 -1.6 1.44 0"/></filter></defs></svg>
@@ -39,11 +81,12 @@ html:lang(hu) #rolunk { max-width: 52rem }
 <section class="intro" id="darabok"><h2 data-i18n="artTitle">Művészi darabok</h2><p data-i18n="artCopy">Kézműves fa tárgyak, amik harmóniát visznek a gyerekszobába</p><div class="categories"><div><h3 data-i18n="category1Title">Kategóriák</h3><p data-i18n="category1Copy">Névre szóló fa emlékeink</p></div><div><h3 data-i18n="category2Title">Puha díszek</h3><p data-i18n="category2Copy">Kézzel festett faliképek</p></div><div><h3 data-i18n="category3Title">Üdvözlő csomagok</h3><p data-i18n="category3Copy">Szívvel készült meglepetés</p></div><div><h3 data-i18n="category4Title">Harmonikus közeg</h3><p data-i18n="category4Copy">Egyedi babaholmik neked</p></div></div></section>
 <section class="folklore"><div><span class="eyebrow" data-i18n="collectionLabel">MERA kollekció</span><h2 data-i18n="collectionTitle">Folklór világ</h2><p data-i18n="collectionCopy">Magyar népi motívumok modern formában. Ez a sorozatunk a hagyományt és a békés otthon melegét hozza el. A letisztult fa és a klasszikus minták találkozása a mai, stílusos gyerekszobákban.</p></div></section>
 <section class="shop-section" id="termekek" aria-labelledby="productsTitle"><div class="shop-heading"><div><span class="eyebrow" data-i18n="collectionLabel">MERA kollekció</span><h2 id="productsTitle" data-i18n="productsTitle">MERA signature</h2></div><p class="shop-notice" data-i18n="catalogueNotice">Tedd a termékeket a kosárba. Ezek bemutató termékek és árak; a valódi kínálatot még egyeztetni kell. Online rendelés nem érhető el.</p></div><div class="shop-products" aria-label="Termékek" data-i18n-aria-label="productsLabel" data-shop-mode="featured"></div><p class="shop-all"><a class="button" href="bolt.html" data-i18n="allProducts">Összes termék</a></p></section>
-<section class="about" id="rolunk" aria-labelledby="aboutTitle"><h2 id="aboutTitle" data-i18n="aboutTitle">A MERA története/ Rólam</h2><div class="about-hungarian"><img class="about-portrait" alt="Zsuzsi, a MERA alapítója" width="720" height="895" loading="lazy" decoding="async" src="assets/portré.png"><div>
+<section class="about" id="rolunk" aria-labelledby="aboutTitle"><h2 id="aboutTitle" data-i18n="aboutTitle">A MERA története/ Rólam</h2><div class="about-hungarian"><div class="about-introduction"><img class="about-portrait" alt="Zsuzsi, a MERA alapítója" width="720" height="895" loading="lazy" decoding="async" src="assets/portré.png"><div>
 <h3>Olyan jó, hogy itt vagy! 🤍</h3>
 <p>Zsuzsi vagyok, a MERA megálmodója.</p>
 <p><strong>Egy gyermek érkezésével annyi minden új értelmet nyer.</strong></p>
 <p>A MERA latinul azt jelenti: <em>tiszta, hamisítatlan, valódi</em>. Hindi nyelven pedig egy számomra különösen kedves jelentést hordoz: <strong><em>enyém</em></strong>.</p>
+</div></div><div class="about-story">
 <p>A MERA története a saját kislányom szobájában kezdődött.</p>
 <p>Volt a fejemben egy elképzelés, de valahogy sehol sem találtam pontosan azt, amit szerettem volna. Rengeteget keresgéltem, míg végül úgy döntöttem, hogy egy meglévő dekorációt alakítok át a saját elképzeléseim szerint.</p>
 <p>Így kezdődtek az altatás utáni, sokszor hajnalig tartó csiszolgatások, festegetések és kísérletezések. Többféle színnel és technikával próbálkoztam, mire végre olyan lett, amilyennek megálmodtam. Emlékszem, mennyire boldog és büszke voltam, amikor elkészült.</p>
@@ -59,7 +102,7 @@ html:lang(hu) #rolunk { max-width: 52rem }
 <article class="trust-card"><img src="assets/mera-trust-care.webp" width="480" height="356" loading="lazy" alt=""><h3 data-i18n="trustTitle3">Gondosan csomagolva</h3><p data-i18n="trustCopy3">Minden rendelést úgy készítünk össze, hogy ajándékként is öröm legyen kibontani.</p></article>
 <article class="trust-card"><img src="assets/mera-trust-delivery.webp" width="480" height="356" loading="lazy" alt=""><h3 data-i18n="trustTitle4">Átlátható rendelés</h3><p data-i18n="trustCopy4">Már vásárlás előtt látod a várható elkészülési és feladási időt.</p></article>
 </section>
-</main><iframe src="kozosseg/index.html?v=refined-worlds-1" title="MERA – A történet itt folytatódik. Közösségi kapuk" loading="lazy" style="display:block;width:100%;aspect-ratio:1536/1024;border:0;background:#ead7bb"></iframe><footer class="mera-footer" id="kapcsolat"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="./">MERA</a><p data-i18n="ft_footerTag">A legszebb kezdetekhez.</p><p data-i18n="ft_footerIntro">Személyes részletek, amelyekből emlék lesz.</p><a href="tudnivalok.html#kapcsolat" data-i18n="ft_contact">Kapcsolat</a><a class="footer-email" href="mailto:hello@merahome.hu">hello@merahome.hu</a></div><div class="footer-column"><h2 data-i18n="ft_footerOrder">Rendelés és átvétel</h2><ul><li><a href="tudnivalok.html#rendeles-menete" data-i18n="ft_process">Rendelés menete</a></li><li><a href="tudnivalok.html#szallitas" data-i18n="ft_shipping">Szállítás</a></li><li><a href="tudnivalok.html#fizetes" data-i18n="ft_payment">Fizetés</a></li><li><a href="tudnivalok.html#szemelyre-szabott-termekek" data-i18n="ft_personal">Személyre szabott termékek</a></li></ul></div><div class="footer-column"><h2 data-i18n="ft_footerHelp">Jó tudni</h2><ul><li><a href="tudnivalok.html#gyik" data-i18n="ft_faq">GYIK</a></li><li><a href="tudnivalok.html#anyagok" data-i18n="ft_materials">Anyagok</a></li><li><a href="tudnivalok.html#biztonsag" data-i18n="ft_safety">Biztonság</a></li></ul></div><div class="footer-column"><h2 data-i18n="ft_footerLegal">Jogi tájékoztatók</h2><ul><li><a href="tudnivalok.html#aszf" data-i18n="ft_terms">ÁSZF</a></li><li><a href="tudnivalok.html#adatvedelem" data-i18n="ft_privacy">Adatvédelem</a></li></ul></div></div><div class="footer-bottom"><p data-i18n="copyright">© 2026 MERA. Minden jog fenntartva.</p><a href="#main" data-i18n="ft_footerBack">Vissza a főoldalra</a></div></footer>
+</main><iframe src="kozosseg/index.html?v=refined-worlds-1" title="MERA – A történet itt folytatódik. Közösségi kapuk" loading="lazy" class="community-gates"></iframe><footer class="mera-footer" id="kapcsolat"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="./">MERA</a><p data-i18n="ft_footerTag">A legszebb kezdetekhez.</p><p data-i18n="ft_footerIntro">Személyes részletek, amelyekből emlék lesz.</p><a href="tudnivalok.html#kapcsolat" data-i18n="ft_contact">Kapcsolat</a><a class="footer-email" href="mailto:hello@merahome.hu">hello@merahome.hu</a></div><div class="footer-column"><h2 data-i18n="ft_footerOrder">Rendelés és átvétel</h2><ul><li><a href="tudnivalok.html#rendeles-menete" data-i18n="ft_process">Rendelés menete</a></li><li><a href="tudnivalok.html#szallitas" data-i18n="ft_shipping">Szállítás</a></li><li><a href="tudnivalok.html#fizetes" data-i18n="ft_payment">Fizetés</a></li><li><a href="tudnivalok.html#szemelyre-szabott-termekek" data-i18n="ft_personal">Személyre szabott termékek</a></li></ul></div><div class="footer-column"><h2 data-i18n="ft_footerHelp">Jó tudni</h2><ul><li><a href="tudnivalok.html#gyik" data-i18n="ft_faq">GYIK</a></li><li><a href="tudnivalok.html#anyagok" data-i18n="ft_materials">Anyagok</a></li><li><a href="tudnivalok.html#biztonsag" data-i18n="ft_safety">Biztonság</a></li></ul></div><div class="footer-column"><h2 data-i18n="ft_footerLegal">Jogi tájékoztatók</h2><ul><li><a href="tudnivalok.html#aszf" data-i18n="ft_terms">ÁSZF</a></li><li><a href="tudnivalok.html#adatvedelem" data-i18n="ft_privacy">Adatvédelem</a></li></ul></div></div><div class="footer-bottom"><p data-i18n="copyright">© 2026 MERA. Minden jog fenntartva.</p><a href="#main" data-i18n="ft_footerBack">Vissza a főoldalra</a></div></footer>
 </body></html>
 
 
